@@ -1,0 +1,173 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/18.1
+Eadder_combinatorial
+Z0 w1487330297
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 dC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/modelsim
+Z4 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_combinatorial.vhd
+Z5 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_combinatorial.vhd
+l0
+L14
+VI65zCG]=M830NIg^GYcg_3
+!s100 Pha?lJA;Z<9N;C]Jz0XHF1
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1635498230
+!i10b 1
+Z8 !s108 1635498230.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_combinatorial.vhd|
+Z10 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_combinatorial.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Aripple_carry
+Z13 DEx4 work 10 full_adder 0 22 [X`[ROAfSboG`?0Jnb>T]0
+R1
+R2
+Z14 DEx4 work 19 adder_combinatorial 0 22 I65zCG]=M830NIg^GYcg_3
+l29
+L25
+VG5M:UP2?aolidlSo?3NNL2
+!s100 6LzoScR^>K77ZGZc@;__c2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eadder_sequential
+Z15 w1487330310
+Z16 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R1
+R2
+R3
+Z17 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_sequential.vhd
+Z18 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_sequential.vhd
+l0
+L15
+VgL:c4IfL>H^Qz?h1zZ82c3
+!s100 <[B`Y?5bVNBC]So@z[nAW2
+R6
+32
+R7
+!i10b 1
+R8
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_sequential.vhd|
+Z20 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/adder_sequential.vhd|
+!i113 1
+R11
+R12
+Artl
+R13
+R16
+R1
+R2
+DEx4 work 16 adder_sequential 0 22 gL:c4IfL>H^Qz?h1zZ82c3
+l58
+L30
+VVzDXWFb`5eRkfGI3IE]@A2
+!s100 elo8QC3hJLWhWL3?df^Hn0
+R6
+32
+R7
+!i10b 1
+R8
+R19
+R20
+!i113 1
+R11
+R12
+Efull_adder
+Z21 w1487330318
+R1
+R2
+R3
+Z22 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/full_adder.vhd
+Z23 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/full_adder.vhd
+l0
+L14
+V[X`[ROAfSboG`?0Jnb>T]0
+!s100 g2N3@Jko[H9l<CQ9d3AKd1
+R6
+32
+R7
+!i10b 1
+R8
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/full_adder.vhd|
+Z25 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/vhdl_testbench_tutorial_template/vhdl_testbench_tutorial/vhdl/full_adder.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+R13
+l25
+L24
+Z26 V3Mj6kY=4NVd3?_4nZFY4C2
+Z27 !s100 bOI^YdjMcWok`9F_JW6Ta1
+R6
+32
+R7
+!i10b 1
+R8
+R24
+R25
+!i113 1
+R11
+R12
+Etb_adder_combinatorial
+Z28 w1635498226
+R16
+R1
+R2
+R3
+Z29 8C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\vhdl_testbench_tutorial_template\vhdl_testbench_tutorial\testbench\tb_adder_combinatorial.vhd
+Z30 FC:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\vhdl_testbench_tutorial_template\vhdl_testbench_tutorial\testbench\tb_adder_combinatorial.vhd
+l0
+L6
+VjBmVMWXkUC9d2;;LKO;eV3
+!s100 doBZfC6@?ih=YPG3ec>5f3
+R6
+32
+Z31 !s110 1635498229
+!i10b 1
+Z32 !s108 1635498229.000000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\vhdl_testbench_tutorial_template\vhdl_testbench_tutorial\testbench\tb_adder_combinatorial.vhd|
+Z34 !s107 C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\vhdl_testbench_tutorial_template\vhdl_testbench_tutorial\testbench\tb_adder_combinatorial.vhd|
+!i113 1
+R11
+R12
+Atest
+R14
+R16
+R1
+R2
+DEx4 work 22 tb_adder_combinatorial 0 22 jBmVMWXkUC9d2;;LKO;eV3
+l21
+L9
+VRohXW[d5k@3zJ9SzSIMza3
+!s100 B8k=8zing_A7baX4<naAH3
+R6
+32
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R11
+R12
