@@ -1,7 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use IEEE.std_logic_unsigned.all;
 
 
 entity Camera_Interface is
@@ -29,7 +28,7 @@ end Camera_Interface;
 
 
 architecture comp of Camera_Interface is
-	type state 						is (Idle, Read_G1_B, Read_R_G2, Ops1, Ops2, WritePixels);
+	type state 						is (Idle, Read_G1_B, Read_R_G2, Ops, WritePixels);
 	type state_EXIT 				is (Idle, SendData);
 	signal SM						: state;
 	signal SM_EXIT					: state_EXIT;
@@ -228,18 +227,13 @@ begin
 				when Read_R_G2 =>
 					R							<= q_FIFO_Entry_1;				
 					G2    					<= q_FIFO_Entry_2;
-					SM 						<= Ops1;
+					SM 						<= Ops;
 					
 					rdreq_FIFO_Entry_1	<= '0';										
 					rdreq_FIFO_Entry_2	<= '0';
-					
-				when Ops1 =>
-					G 					<= G1 + G2;
-					CntPixels 		<= CntPixels + 1;
-					SM					<= Ops2;
 				
-				when Ops2 =>
-					G 					<= '0' & G(11 downto 1);
+				when Ops =>
+					G 					<= std_logic_vector(shift_right(unsigned(G1) + unsigned(G2), 1));
 					CntPixels 		<= CntPixels + 1;
 					SM					<= WritePixels;
 						

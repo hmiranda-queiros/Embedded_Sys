@@ -22,9 +22,9 @@ Vk_3EHc9MLJZB;zO3J6i@e3
 !s100 EV37EQKa@kaSFINa:;R1m3
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1640304591
+Z8 !s110 1640337379
 !i10b 1
-Z9 !s108 1640304591.000000
+Z9 !s108 1640337379.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 Z11 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 !i113 1
@@ -50,69 +50,65 @@ R11
 R12
 R13
 Ecamera_interface
-Z15 w1640304511
-Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z15 w1640334932
 R1
 R2
 R3
 R4
-Z18 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
-Z19 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
+Z16 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
+Z17 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
 l0
-L7
-VZkdUUHMzSUnOCAC]Sz>MB2
-!s100 F]@8;bC3hS6oZjOT]RS;A2
+L6
+V2c4DgCAUof>CC[Pbhdj8K0
+!s100 VN:izZ<`z;N<3Gha>FoO=3
 R7
 32
 R8
 !i10b 1
 R9
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd|
-Z21 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd|
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd|
+Z19 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd|
 !i113 1
 R12
 R13
 Acomp
-R16
-R17
 R1
 R2
 R3
-DEx4 work 16 camera_interface 0 22 ZkdUUHMzSUnOCAC]Sz>MB2
-l94
-L31
-V8I@XjmO78c53XbRZQHfgi2
-!s100 `oJ=?<;dQXBP@Pl4oRj<11
+DEx4 work 16 camera_interface 0 22 2c4DgCAUof>CC[Pbhdj8K0
+l93
+L30
+V`aELKB8iF:YlY^?fdVSjd2
+!s100 56ZLFPFR]dCF7<h:4LIX[0
 R7
 32
 R8
 !i10b 1
 R9
-R20
-R21
+R18
+R19
 !i113 1
 R12
 R13
 Ecamera_master
-Z22 w1640286971
+Z20 w1640286971
 R1
 R2
 R3
 R4
-Z23 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
-Z24 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
+Z21 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
+Z22 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
 l0
 L5
 VP0mN`2=03i43GeCT@Vhk_3
 !s100 VJV9WOAlVfnb_gXgfkcdz0
 R7
 32
-Z25 !s110 1640304592
+R8
 !i10b 1
-Z26 !s108 1640304592.000000
-Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd|
-Z28 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd|
+R9
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd|
+Z24 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd|
 !i113 1
 R12
 R13
@@ -127,67 +123,67 @@ VYN3n2CKYK62GAhzjY3_>O3
 !s100 LX=B7bZeT=TSKcm]HV]X[3
 R7
 32
-R25
+R8
 !i10b 1
-R26
-R27
-R28
+R9
+R23
+R24
 !i113 1
 R12
 R13
 Ecmos_sensor_output_generator
-Z29 w1490771574
-Z30 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
-Z31 DPx4 work 38 cmos_sensor_output_generator_constants 0 22 fgXUi?FhN[hO5_RK;BU5S2
+Z25 w1490771574
+Z26 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z27 DPx4 work 38 cmos_sensor_output_generator_constants 0 22 fgXUi?FhN[hO5_RK;BU5S2
 R1
 R2
 R3
 R4
-Z32 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd
-Z33 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd
+Z28 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd
+Z29 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd
 l0
 L7
 V;W10=Bc[:LZIl^Zj;JTLb0
 !s100 C8`FK^G0k[;A4ZVEe856F3
 R7
 32
-R25
+Z30 !s110 1640337380
 !i10b 1
-R26
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
-Z35 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
+Z31 !s108 1640337380.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
+Z33 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
 !i113 1
 R12
 R13
 Artl
-R30
-R31
+R26
+R27
 R1
 R2
 R3
-Z36 DEx4 work 28 cmos_sensor_output_generator 0 22 ;W10=Bc[:LZIl^Zj;JTLb0
+Z34 DEx4 work 28 cmos_sensor_output_generator 0 22 ;W10=Bc[:LZIl^Zj;JTLb0
 l53
 L30
 V5eU7in2__5k992[2Rj]EY3
 !s100 S`Tklb>jdzB:R2PL9o?[]3
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R34
-R35
+R31
+R32
+R33
 !i113 1
 R12
 R13
 Pcmos_sensor_output_generator_constants
-R30
+R26
 R2
 R3
-R29
+R25
 R4
-Z37 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd
-Z38 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd
+Z35 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd
+Z36 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd
 l0
 L5
 VfgXUi?FhN[hO5_RK;BU5S2
@@ -195,17 +191,17 @@ VfgXUi?FhN[hO5_RK;BU5S2
 R7
 32
 b1
-R25
+R30
 !i10b 1
-R26
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd|
-Z40 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd|
+R9
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd|
+Z38 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator_constants.vhd|
 !i113 1
 R12
 R13
 Bbody
-R31
-R30
+R27
+R26
 R2
 R3
 l0
@@ -214,32 +210,32 @@ VOWO9mdJc0gN`=z`_GFB`R0
 !s100 eeXazRcc0CWg81QXk5`XG2
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R39
-R40
+R9
+R37
+R38
 !i113 1
 R12
 R13
 Efifo_entry
-Z41 w1640299576
+Z39 w1640299576
 R2
 R3
 R4
-Z42 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
-Z43 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
+Z40 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
+Z41 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
 l0
 L42
 V[@gUZLEIUoKX3lCnJSA830
 !s100 J`9=Nh7JR_lQ>gT0;[zzV0
 R7
 32
-R25
+R30
 !i10b 1
-R26
-Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd|
-Z45 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd|
+R31
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd|
+Z43 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd|
 !i113 1
 R12
 R13
@@ -253,63 +249,63 @@ V]f4A@B>g>`]P:iPfimOV30
 !s100 JAh`1A5bW1iOY5VE2OV]k0
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R44
-R45
+R31
+R42
+R43
 !i113 1
 R12
 R13
 Efifo_exit
-Z46 w1640299825
+Z44 w1640299825
 R2
 R3
 R4
-Z47 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd
-Z48 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd
+Z45 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd
+Z46 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd
 l0
 L42
 V?gh?;M0_abSG:RXQz1lg]1
 !s100 Wb4OXoQKiURlaIVAV9mYk2
 R7
 32
-R25
+R30
 !i10b 1
-R26
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd|
-Z50 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd|
+R31
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd|
+Z48 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd|
 !i113 1
 R12
 R13
 Asyn
 R2
 R3
-Z51 DEx4 work 9 fifo_exit 0 22 ?gh?;M0_abSG:RXQz1lg]1
+Z49 DEx4 work 9 fifo_exit 0 22 ?gh?;M0_abSG:RXQz1lg]1
 l87
 L56
-Z52 VL4:2fBb;ck<lZic:XHYF91
-Z53 !s100 Bij5fW<imB7fdL3;N_FS?3
+Z50 VL4:2fBb;ck<lZic:XHYF91
+Z51 !s100 Bij5fW<imB7fdL3;N_FS?3
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R49
-R50
+R31
+R47
+R48
 !i113 1
 R12
 R13
 Etb_camera_ctrl
 w1640298706
-R30
-R31
+R26
+R27
 R1
 R2
 R3
 R4
-Z54 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd
-Z55 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd
+Z52 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd
+Z53 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd
 l0
 L7
 VRE`_T0:G8@]?:ZVUW?aC?0
@@ -319,16 +315,16 @@ R7
 !s110 1640298735
 !i10b 1
 !s108 1640298735.000000
-Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd|
-Z57 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd|
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd|
+Z55 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd|
 !i113 1
 R12
 R13
 Atest
-R36
+R34
 R14
-R30
-R31
+R26
+R27
 R1
 R2
 R3
@@ -342,56 +338,55 @@ R7
 !s110 1640298642
 !i10b 1
 !s108 1640298642.000000
-R56
-R57
+R54
+R55
 !i113 1
 R12
 R13
 w1640298632
 Etb_camera_ctrl_with_cmos
-Z58 w1640304106
-R30
-R31
+Z56 w1640337348
+R26
+R27
 R1
 R2
 R3
 R4
-R54
-R55
+R52
+R53
 l0
 L7
 VV6iBFhEV58^S>iFh[>e901
 !s100 aHdlQCABlUJaK;`]H9h`d3
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R56
-R57
+R31
+R54
+R55
 !i113 1
 R12
 R13
 Atest
-R14
-R36
-R30
-R31
+R34
+R26
+R27
 R1
 R2
 R3
 DEx4 work 24 tb_camera_ctrl_with_cmos 0 22 V6iBFhEV58^S>iFh[>e901
 l63
 L10
-V];@ROW>T`B[=:ifeb=Kzg0
-!s100 D[R^V0U9nM0oBTg`0m0SE2
+V`LLL^mda>;Vik1_1?HBDE2
+!s100 4E[CX>J0N;=JO:[c]kWQ[3
 R7
 32
-R25
+R30
 !i10b 1
-R26
-R56
-R57
+R31
+R54
+R55
 !i113 1
 R12
 R13
