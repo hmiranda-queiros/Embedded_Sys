@@ -17,10 +17,11 @@ entity Camera_Master is
 			NewData 			: in std_logic;
 			DataAck			: out std_logic;
 			NewPixels		: in std_logic_vector(31 downto 0);
+			EndBuffer		: out std_logic;
 			
 			iRegAdr 			: in unsigned(31 downto 0);
 			iRegLength 		: in unsigned(31 downto 0);
-			iRegEnable		: inout std_logic;
+			iRegEnable		: in std_logic;
 			iRegBurst		: in unsigned(31 downto 0)
 			
 		);
@@ -44,6 +45,7 @@ begin
 			DataAck 				<= '0';
 			SM 					<= Idle;
 			AM_Write 			<= '0';
+			EndBuffer			<= '0';
 			AM_ByteEnable 		<= "0000";
 			AM_DataWrite		<= (others => '0');
 			AM_BurstCount		<= (others => '0');
@@ -101,13 +103,14 @@ begin
 						if CntLength /= iRegBurst then 						-- Not End of buffer → new address
 							CntLength <= CntLength - iRegBurst;
 						else 															-- Yes → desable camera interface and send flag to CPU
-							iRegEnable <= '0';
-							SM <= WaitCPU;
+							EndBuffer	<= '1';
+							SM 			<= WaitCPU;
 						end if;
 						
 					end if;
 					
 				when WaitCPU => 													-- Wait for CPU to start a new frame
+					EndBuffer	<= '0';
 					if iRegEnable = '1' then
 						SM <= Idle;
 					end if;

@@ -47,6 +47,7 @@ architecture main of Camera_Ctrl is
 	signal NewData 		: std_logic; 						
 	signal DataAck			: std_logic;								
 	signal NewPixels		: std_logic_vector(31 downto 0);
+	signal EndBuffer	: std_logic;
 
 	
 	component Camera_Master is 
@@ -60,6 +61,7 @@ architecture main of Camera_Ctrl is
 			AM_ByteEnable	: out std_logic_vector(3 downto 0);
 			AM_BurstCount	: out std_logic_vector(31 downto 0);
 			AM_WaitRequest	: in std_logic;
+			EndBuffer		: out std_logic;
 			
 			NewData 			: in std_logic;
 			DataAck			: out std_logic;
@@ -110,6 +112,7 @@ begin
 				AM_ByteEnable	=> AM_ByteEnable,
 				AM_BurstCount	=> AM_BurstCount,
 				AM_WaitRequest 	=> AM_WaitRequest,
+				EndBuffer		=> EndBuffer,
 			
 				NewData 			=> NewData,
 				DataAck			=> DataAck,				
@@ -154,6 +157,9 @@ begin
 			iRegBurst		<= (others => '0');
 			
 		elsif rising_edge(Clk) then
+			if EndBuffer = '1' then
+				iRegEnable <= '0';
+			end if;
 			if AS_Write = '1' then
 				case AS_Adr is
 					when "000"  => iRegAdr			<= unsigned(AS_DataWrite);   		-- sets the start address of the frame in memory
@@ -168,7 +174,7 @@ begin
 	
 	
 	-- Avalon slave read from registers.
-	process(Clk)
+	process(Clk, EndBuffer)
 	begin
 		if rising_edge(Clk) then
 			AS_DataRead <= (others => '0');

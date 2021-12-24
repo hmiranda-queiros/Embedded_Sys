@@ -32,10 +32,6 @@ architecture test of tb_Camera_Ctrl_with_cmos is
 	-- Camera Interface
 	signal	XCLKIN			: std_logic;
 	signal	RESETn			: std_logic;
-	signal	D				: std_logic_vector(11 downto 0);
-	signal	LVAL			: std_logic;
-	signal	FVAL			: std_logic;
-	signal	PIXCLK			: std_logic;
 	
 	
     signal reset : std_logic;
@@ -106,8 +102,8 @@ begin
 		AM_BurstCount	=> AM_BurstCount,
 		AM_WaitRequest	=> AM_WaitRequest,
 		
-		XCLKIN			=> Clk,
-		RESETn			=> nReset,
+		XCLKIN			=> XCLKIN,
+		RESETn			=> RESETn,
 		D				=> data,
 		LVAL			=> line_valid,	
 		FVAL			=> frame_valid, 	
