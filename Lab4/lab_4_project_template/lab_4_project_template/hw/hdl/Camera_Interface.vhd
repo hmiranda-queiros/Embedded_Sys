@@ -21,6 +21,7 @@ entity Camera_Interface is
 		
 		iRegEnable		: in std_logic;
 		iRegBurst		: in unsigned(31 downto 0);
+		iRegLight		: in std_logic;
 		AM_WaitRequest	: in std_logic
 		
 	);
@@ -126,29 +127,19 @@ begin
 	RESETn <= nReset;
 	XCLKIN <= Clk;
 	
-	-- Clear FIFOs
-	process (nReset, Clk)
-	begin
-		Clear <= not nReset;
-		
-		if rising_edge(Clk) and iRegEnable = '0' then 
-			Clear <= '1';
-		end if;
-		
-	end process;
-	
-	
 	-- Acquisition rows from Camera
-	process (nReset, LVAL, FVAL)
+	process (nReset, LVAL, FVAL, iRegEnable)
 	begin
+		Clear <= '0';
 		if nReset = '0' then
 			wrreq_FIFO_Entry_1		<= '0';
 			wrreq_FIFO_Entry_2		<= '0';
 			SM_Entry				<= Idle;
+			Clear 					<= '1';
 			
-		
 		elsif iRegEnable = '0' then
-			SM_Entry <= Idle;	
+			SM_Entry	<= Idle;
+			Clear		<= '1';
 		end if;
 			
 		case SM_Entry is
@@ -257,10 +248,19 @@ begin
 						
 				When WritePixels =>
 					if CntPixels = 1 then 
-						PixelsReady(15 downto 0)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7); 
+						if iRegLight = '1' then
+							PixelsReady(15 downto 0)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
+						else 
+							PixelsReady(15 downto 0)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
+						end if;
 					
 					else 
-						PixelsReady(31 downto 16)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
+						if iRegLight = '1' then
+							PixelsReady(31 downto 16)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
+						else 
+							PixelsReady(31 downto 16)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
+						end if;
+						
 						wrreq_FIFO_Exit				<= '1';
 						CntPixels 					<= (others => '0');
 					end if;
@@ -271,7 +271,7 @@ begin
 					else 
 						rdreq_FIFO_Entry_1	<= '1';										
 						rdreq_FIFO_Entry_2	<= '1';
-						SM							<= WaitRead;
+						SM					<= WaitRead;
 					end if;
 			end case;
 		end if;

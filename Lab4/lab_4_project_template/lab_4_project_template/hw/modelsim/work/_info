@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/fpga_intro/fpga_intro/hw/modelsim
 Ecamera_ctrl
-Z0 w1640536572
+Z0 w1640544035
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ Vk_3EHc9MLJZB;zO3J6i@e3
 !s100 EV37EQKa@kaSFINa:;R1m3
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1640540364
+Z8 !s110 1640547078
 !i10b 1
-Z9 !s108 1640540364.000000
+Z9 !s108 1640547078.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 Z11 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 !i113 1
@@ -35,10 +35,10 @@ R1
 R2
 R3
 Z14 DEx4 work 11 camera_ctrl 0 22 k_3EHc9MLJZB;zO3J6i@e3
-l102
+l104
 L40
-VhiD^iY=bd0NSa6K9JL>E42
-!s100 >T=]L?K@Ti@42d_k<ZlmT1
+VIK1EfCP4?`358^oo0dVn31
+!s100 KEWzf[]k7<Ra:aO=:bWBi0
 R7
 32
 R8
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Ecamera_interface
-Z15 w1640540352
+Z15 w1640547061
 R1
 R2
 R3
@@ -59,8 +59,8 @@ Z16 8C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_tem
 Z17 FC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
 l0
 L6
-V2c4DgCAUof>CC[Pbhdj8K0
-!s100 VN:izZ<`z;N<3Gha>FoO=3
+VoTillD_2PdhM?V4WD@P3E2
+!s100 37TgfzUBCOPWUWi?WBMX>2
 R7
 32
 R8
@@ -75,11 +75,11 @@ Acomp
 R1
 R2
 R3
-DEx4 work 16 camera_interface 0 22 2c4DgCAUof>CC[Pbhdj8K0
-l90
-L30
-VH9@HlzOz;Q3z3DWLn>4P?2
-!s100 3nXoBUFR4FJQ;OOHXJa3X2
+DEx4 work 16 camera_interface 0 22 oTillD_2PdhM?V4WD@P3E2
+l91
+L31
+VF0<^8jkoH2bNHabT:1bkf1
+!s100 ]8iVD07ZId;`;bWJdz?j]0
 R7
 32
 R8
@@ -147,9 +147,9 @@ V;W10=Bc[:LZIl^Zj;JTLb0
 !s100 C8`FK^G0k[;A4ZVEe856F3
 R7
 32
-Z30 !s110 1640540365
+Z30 !s110 1640547079
 !i10b 1
-Z31 !s108 1640540365.000000
+Z31 !s108 1640547079.000000
 Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
 Z33 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/cmos_sensor_output_generator/hdl/cmos_sensor_output_generator.vhd|
 !i113 1
@@ -384,7 +384,7 @@ R12
 R13
 w1640298632
 Etb_camera_ctrl_with_cmos
-Z63 w1640537489
+Z63 w1640543973
 R26
 R27
 R1
@@ -418,8 +418,8 @@ R3
 DEx4 work 24 tb_camera_ctrl_with_cmos 0 22 V6iBFhEV58^S>iFh[>e901
 l59
 L10
-V>=19aFV_iI?k>Z:QM<e[Q3
-!s100 <ZoWMcV>=e7O1fSo015cI2
+Vag7S=4S5N1VSFaf_Dj_Wn0
+!s100 gBKVbJo?faacKB8<_Y;Ln3
 R7
 32
 R30

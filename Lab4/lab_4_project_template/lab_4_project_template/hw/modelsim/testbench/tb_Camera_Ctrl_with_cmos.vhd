@@ -242,6 +242,7 @@ begin
 		WR(0, 777);			-- Writes RegAdr
 		WR(3, 2);			-- Writes RegBurst
 		WR(1, 16);			-- Writes RegLength
+		WR(4, 0);			-- Writes RegLength
 		WR(2, 1);			-- Writes RegEnable
 		
 		RD(0);				-- Reads RegAdr

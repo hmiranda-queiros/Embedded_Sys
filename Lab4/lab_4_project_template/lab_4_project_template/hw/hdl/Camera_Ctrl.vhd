@@ -41,8 +41,9 @@ architecture main of Camera_Ctrl is
 	
 	signal iRegAdr 		: unsigned(31 downto 0);				
 	signal iRegLength 	: unsigned(31 downto 0); 		
-	signal iRegEnable		: std_logic; 							
+	signal iRegEnable		: std_logic; 
 	signal iRegBurst		: unsigned(31 downto 0);
+	signal iRegLight	: std_logic;
 	
 	signal NewData 		: std_logic; 						
 	signal DataAck			: std_logic;								
@@ -94,6 +95,7 @@ architecture main of Camera_Ctrl is
 			
 			iRegEnable		: in std_logic;
 			iRegBurst		: in unsigned(31 downto 0);
+			iRegLight		: in std_logic;
 			AM_WaitRequest	: in std_logic
 			
 		);
@@ -143,6 +145,7 @@ begin
 			
 			iRegEnable		=> iRegEnable,
 			iRegBurst		=> iRegBurst,
+			iRegLight		=> iRegLight,
 			AM_WaitRequest 	=> AM_WaitRequest
 
 		);
@@ -166,6 +169,7 @@ begin
 					when "001"  => iRegLength		<= unsigned(AS_DataWrite);			-- sets the length of one frame in memory in number of 32 bit words
 					when "010"  => iRegEnable		<= AS_DataWrite(0);					-- sets the state of the camera interface
 					when "011"  => iRegBurst		<= unsigned(AS_DataWrite);			-- sets the lentgth of the busrt to transfer
+					when "100"	=> iRegLight		<= AS_DataWrite(0);
 					when others => null;
 				end case;
 			end if;
@@ -184,6 +188,7 @@ begin
 					when "001"  => AS_DataRead		<=  std_logic_vector(iRegLength);			-- reads the length of one frame in memory in number of 32 bit words
 					when "010"  => AS_DataRead(0)	<=  iRegEnable;									-- reads the state of the camera interface
 					when "011"  => AS_DataRead		<=  std_logic_vector(iRegBurst);				-- reads the lentgth of the busrt to transfer
+					when "100"	=> AS_DataRead(0)	<=	iRegLight;
 					when others => null;
 				end case;
 			end if;
