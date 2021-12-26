@@ -240,7 +240,7 @@ begin
 		
 		--Test
 		WR(0, 777);			-- Writes RegAdr
-		WR(3, 4);			-- Writes RegBurst
+		WR(3, 2);			-- Writes RegBurst
 		WR(1, 16);			-- Writes RegLength
 		WR(2, 1);			-- Writes RegEnable
 		

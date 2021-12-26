@@ -28,10 +28,12 @@ end Camera_Interface;
 
 
 architecture comp of Camera_Interface is
-	type state 						is (Idle, Read_G1_B, Read_R_G2, Ops, WritePixels);
-	type state_EXIT 				is (Idle, SendData);
+	type state 						is (Idle, Read_G1_B, Read_R_G2, Ops, WritePixels, WaitRead);
+	type state_Entry 				is (Idle, WaitLine1, WaitLine2, ReadLine1, ReadLine2);
+	type state_Exit 				is (Idle, SendData);
 	signal SM						: state;
-	signal SM_EXIT					: state_EXIT;
+	signal SM_Entry					: state_Entry;
+	signal SM_Exit					: state_Exit;
 	
 	signal wrreq_FIFO_Entry_1	: std_logic;
 	signal wrreq_FIFO_Entry_2	: std_logic; 										
@@ -40,19 +42,15 @@ architecture comp of Camera_Interface is
 	signal rdreq_FIFO_Entry_1	: std_logic;										
 	signal rdreq_FIFO_Entry_2	: std_logic;										
 	signal rdreq_FIFO_Exit		: std_logic;										
-	
-	signal almost_full_FIFO_1	: std_logic; 										
-	signal almost_full_FIFO_2	: std_logic;										
+											
 	signal usedw_FIFO_Exit		: std_logic_vector(7 downto 0);
-
-	signal Empty_FIFO_1			: std_logic;
-	signal Empty_FIFO_2			: std_logic;
+	signal empty_FIFO_1			: std_logic;
+	signal empty_FIFO_2			: std_logic;
 	
 	signal q_FIFO_Entry_1		: std_logic_vector(11 downto 0);				
 	signal q_FIFO_Entry_2		: std_logic_vector(11 downto 0);
 	
 	signal PixelsReady			: std_logic_vector(31 downto 0);
-	signal Frame_OK				: std_logic;
 	signal Clear					: std_logic;
 	
 	signal R							: std_logic_vector(11 downto 0);
@@ -60,8 +58,8 @@ architecture comp of Camera_Interface is
 	signal G2						: std_logic_vector(11 downto 0);
 	signal G							: std_logic_vector(11 downto 0);
 	signal B							: std_logic_vector(11 downto 0);
-	signal CntPixels				: unsigned(1 downto 0);
-	Signal CntBurst				: unsigned(31 downto 0);
+	signal CntPixels				: unsigned(2 downto 0);
+	signal CntBurst				: unsigned(31 downto 0);
 	
 
 	component FIFO_Entry is
@@ -71,7 +69,6 @@ architecture comp of Camera_Interface is
 			data	 			: in std_logic_vector(11 downto 0);
 			rdreq	 			: in std_logic;
 			wrreq	 			: in std_logic;
-			almost_full	 	: out std_logic;
 			empty				: out std_logic;
 			q	 				: out std_logic_vector(11 downto 0)
 		);
@@ -92,15 +89,14 @@ architecture comp of Camera_Interface is
 
 begin
 	
-	FIFO_Entry_1 : component FIFO_Entry 
+	FIFO_Entry_1 : component FIFO_Entry
 		port map (
 			aclr	 			=> Clear,
 			clock	 			=> Clk,
 			data	 			=> D,
 			rdreq	 			=> rdreq_FIFO_Entry_1,
 			wrreq	 			=> wrreq_FIFO_Entry_1,
-			almost_full	 	=> almost_full_FIFO_1,
-			empty	 			=> Empty_FIFO_1,
+			empty				=> empty_FIFO_1,
 			q	 				=> q_FIFO_Entry_1
 		);
 		
@@ -111,8 +107,7 @@ begin
 			data	 			=> D,
 			rdreq	 			=> rdreq_FIFO_Entry_2,
 			wrreq	 			=> wrreq_FIFO_Entry_2,
-			almost_full	 	=> almost_full_FIFO_2,
-			empty	 			=> Empty_FIFO_2,
+			empty				=> empty_FIFO_2,
 			q	 				=> q_FIFO_Entry_2
 		);
 		
@@ -132,11 +127,11 @@ begin
 	XCLKIN <= Clk;
 	
 	-- Clear FIFOs
-	process (nReset, iRegEnable)
+	process (nReset, Clk)
 	begin
 		Clear <= not nReset;
 		
-		if iRegEnable = '0' then 
+		if rising_edge(Clk) and iRegEnable = '0' then 
 			Clear <= '1';
 		end if;
 		
@@ -144,36 +139,55 @@ begin
 	
 	
 	-- Acquisition rows from Camera
-	process (nReset, PIXCLK)
+	process (nReset, LVAL, FVAL)
 	begin
 		if nReset = '0' then
 			wrreq_FIFO_Entry_1		<= '0';
 			wrreq_FIFO_Entry_2		<= '0';
-			Frame_OK						<= '0';
+			SM_Entry				<= Idle;
+			
 		
-		elsif rising_edge(PIXCLK) then	
-			if iRegEnable = '1' then
-				if FVAL = '0' then
-					Frame_OK <= '1';
-				elsif FVAL = '1' and LVAL = '1' and Frame_OK = '1' then
-					if almost_full_FIFO_1 = '0' then
-						wrreq_FIFO_Entry_1 <= '1';
-						wrreq_FIFO_Entry_2 <= '0';
-					else
-						wrreq_FIFO_Entry_1 <= '0';
-						wrreq_FIFO_Entry_2 <= '1';
-					end if;
-				else 
-					wrreq_FIFO_Entry_1 <= '0';
-					wrreq_FIFO_Entry_2 <= '0';
-				end if;
-				
-			else
+		elsif iRegEnable = '0' then
+			SM_Entry <= Idle;	
+		end if;
+			
+		case SM_Entry is
+			when Idle =>
 				wrreq_FIFO_Entry_1		<= '0';
 				wrreq_FIFO_Entry_2		<= '0';
-				Frame_OK						<= '0';
-			end if;
-		end if;
+				
+				if iRegEnable = '1' and FVAL = '0' then
+					SM_Entry <= WaitLine1;
+				end if;
+			
+			when WaitLine1 =>
+				if LVAL = '1' then
+					wrreq_FIFO_Entry_1	<= '1';
+					wrreq_FIFO_Entry_2	<= '0';
+					SM_Entry <= ReadLine1;
+				end if;
+			
+			when ReadLine1 =>
+				if LVAL = '0' then
+					wrreq_FIFO_Entry_1	<= '0';
+					wrreq_FIFO_Entry_2	<= '0';
+					SM_Entry <= WaitLine2;
+				end if;
+				
+			when WaitLine2 =>
+				if LVAL = '1' then
+					wrreq_FIFO_Entry_1 <= '0';
+					wrreq_FIFO_Entry_2 <= '1';
+					SM_Entry <= ReadLine2;
+				end if;
+					
+			when ReadLine2 =>
+				if  LVAL = '0' then
+					wrreq_FIFO_Entry_1 <= '0';
+					wrreq_FIFO_Entry_2 <= '0';
+					SM_Entry <= WaitLine1;
+				end if;		
+		end case;
 		
 	end process;
 	
@@ -212,11 +226,15 @@ begin
 					PixelsReady					<= (others => '0');
 					CntPixels					<= (others => '0');
 					
-					if almost_full_FIFO_2 = '1' then
+					if empty_FIFO_2 = '0' then
 						rdreq_FIFO_Entry_1	<= '1';										
 						rdreq_FIFO_Entry_2	<= '1';
-						SM 						<= Read_G1_B;
+						SM 						<= WaitRead;
 					end if;
+					
+				when WaitRead =>
+					wrreq_FIFO_Exit		<= '0';
+					SM					<= Read_G1_B;
 					
 				when Read_G1_B =>
 					wrreq_FIFO_Exit		<= '0';
@@ -224,13 +242,13 @@ begin
 					B     					<= q_FIFO_Entry_2;
 					SM 						<= Read_R_G2;
 					
+					rdreq_FIFO_Entry_1	<= '0';										
+					rdreq_FIFO_Entry_2	<= '0';
+					
 				when Read_R_G2 =>
 					R							<= q_FIFO_Entry_1;				
 					G2    					<= q_FIFO_Entry_2;
 					SM 						<= Ops;
-					
-					rdreq_FIFO_Entry_1	<= '0';										
-					rdreq_FIFO_Entry_2	<= '0';
 				
 				when Ops =>
 					G 					<= std_logic_vector(shift_right(unsigned(G1) + unsigned(G2), 1));
@@ -244,7 +262,7 @@ begin
 					else 
 						PixelsReady(31 downto 16)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
 						wrreq_FIFO_Exit				<= '1';
-						CntPixels 						<= (others => '0');
+						CntPixels 					<= (others => '0');
 					end if;
 					
 					if Empty_FIFO_2 = '1' then
@@ -253,11 +271,12 @@ begin
 					else 
 						rdreq_FIFO_Entry_1	<= '1';										
 						rdreq_FIFO_Entry_2	<= '1';
-						SM							<= Read_G1_B;
+						SM							<= WaitRead;
 					end if;
 			end case;
 		end if;
 	end process;
+	
 	
 		
 	-- Send Pixel to DMA
@@ -268,14 +287,14 @@ begin
 			CntBurst						<= (others => '0');
 			rdreq_FIFO_Exit			<= '0';
 			NewPixels					<= (others => '0');
-			SM_EXIT					<= Idle;
+			SM_Exit				<= Idle;
 			
 		elsif rising_edge(Clk) then
 			if iRegEnable = '0' then
-				SM_EXIT <= Idle;
+				SM_Exit <= Idle;
 			end if;
 			
-			case SM_EXIT is
+			case SM_Exit is
 				when Idle =>
 					rdreq_FIFO_Exit			<= '0';
 					NewPixels					<= (others => '0');
@@ -283,7 +302,7 @@ begin
 					CntBurst						<= iRegBurst;
 					
 					if unsigned(usedw_FIFO_Exit) >= iRegBurst and iRegEnable = '1' then
-						SM_EXIT					<= SendData;
+						SM_Exit				<= SendData;
 						rdreq_FIFO_Exit		<= '1';
 					end if;
 					
@@ -298,7 +317,7 @@ begin
 						rdreq_FIFO_Exit	<= '0';
 						if DataAck 	<= '1' then
 							NewData	<= '0';
-							SM_EXIT		<= Idle;
+							SM_Exit		<= Idle;
 						end if;
 					end if;
 			end case;	

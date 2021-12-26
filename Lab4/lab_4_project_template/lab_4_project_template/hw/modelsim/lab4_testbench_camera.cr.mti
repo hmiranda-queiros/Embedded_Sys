@@ -50,14 +50,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity cmos_sensor_output_generator
 -- Compiling architecture rtl of cmos_sensor_output_generator
 
-} {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity FIFO_Entry
--- Compiling architecture SYN of fifo_entry
-
 } {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Exit/FIFO_Exit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -65,5 +57,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package std_logic_1164
 -- Compiling entity FIFO_Exit
 -- Compiling architecture SYN of fifo_exit
+
+} {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/ip/FIFO_Entry/FIFO_Entry.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FIFO_Entry
+-- Compiling architecture SYN of fifo_entry
 
 } {} {}}

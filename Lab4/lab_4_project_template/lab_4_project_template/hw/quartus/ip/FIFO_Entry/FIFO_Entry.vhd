@@ -47,7 +47,6 @@ ENTITY FIFO_Entry IS
 		data		: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 		rdreq		: IN STD_LOGIC ;
 		wrreq		: IN STD_LOGIC ;
-		almost_full		: OUT STD_LOGIC ;
 		empty		: OUT STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
 	);
@@ -57,15 +56,13 @@ END FIFO_Entry;
 ARCHITECTURE SYN OF fifo_entry IS
 
 	SIGNAL sub_wire0	: STD_LOGIC ;
-	SIGNAL sub_wire1	: STD_LOGIC ;
-	SIGNAL sub_wire2	: STD_LOGIC_VECTOR (11 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (11 DOWNTO 0);
 
 
 
 	COMPONENT scfifo
 	GENERIC (
 		add_ram_output_register		: STRING;
-		almost_full_value		: NATURAL;
 		intended_device_family		: STRING;
 		lpm_numwords		: NATURAL;
 		lpm_showahead		: STRING;
@@ -82,21 +79,18 @@ ARCHITECTURE SYN OF fifo_entry IS
 			data	: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 			rdreq	: IN STD_LOGIC ;
 			wrreq	: IN STD_LOGIC ;
-			almost_full	: OUT STD_LOGIC ;
 			empty	: OUT STD_LOGIC ;
 			q	: OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
 	);
 	END COMPONENT;
 
 BEGIN
-	almost_full    <= sub_wire0;
-	empty    <= sub_wire1;
-	q    <= sub_wire2(11 DOWNTO 0);
+	empty    <= sub_wire0;
+	q    <= sub_wire1(11 DOWNTO 0);
 
 	scfifo_component : scfifo
 	GENERIC MAP (
 		add_ram_output_register => "OFF",
-		almost_full_value => 640,
 		intended_device_family => "Cyclone V",
 		lpm_numwords => 1024,
 		lpm_showahead => "OFF",
@@ -113,9 +107,8 @@ BEGIN
 		data => data,
 		rdreq => rdreq,
 		wrreq => wrreq,
-		almost_full => sub_wire0,
-		empty => sub_wire1,
-		q => sub_wire2
+		empty => sub_wire0,
+		q => sub_wire1
 	);
 
 
@@ -127,8 +120,8 @@ END SYN;
 -- ============================================================
 -- Retrieval info: PRIVATE: AlmostEmpty NUMERIC "0"
 -- Retrieval info: PRIVATE: AlmostEmptyThr NUMERIC "-1"
--- Retrieval info: PRIVATE: AlmostFull NUMERIC "1"
--- Retrieval info: PRIVATE: AlmostFullThr NUMERIC "640"
+-- Retrieval info: PRIVATE: AlmostFull NUMERIC "0"
+-- Retrieval info: PRIVATE: AlmostFullThr NUMERIC "-1"
 -- Retrieval info: PRIVATE: CLOCKS_ARE_SYNCHRONIZED NUMERIC "0"
 -- Retrieval info: PRIVATE: Clock NUMERIC "0"
 -- Retrieval info: PRIVATE: Depth NUMERIC "1024"
@@ -159,7 +152,6 @@ END SYN;
 -- Retrieval info: PRIVATE: wsUsedW NUMERIC "0"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: ADD_RAM_OUTPUT_REGISTER STRING "OFF"
--- Retrieval info: CONSTANT: ALMOST_FULL_VALUE NUMERIC "640"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 -- Retrieval info: CONSTANT: LPM_NUMWORDS NUMERIC "1024"
 -- Retrieval info: CONSTANT: LPM_SHOWAHEAD STRING "OFF"
@@ -170,7 +162,6 @@ END SYN;
 -- Retrieval info: CONSTANT: UNDERFLOW_CHECKING STRING "ON"
 -- Retrieval info: CONSTANT: USE_EAB STRING "ON"
 -- Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT NODEFVAL "aclr"
--- Retrieval info: USED_PORT: almost_full 0 0 0 0 OUTPUT NODEFVAL "almost_full"
 -- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT NODEFVAL "clock"
 -- Retrieval info: USED_PORT: data 0 0 12 0 INPUT NODEFVAL "data[11..0]"
 -- Retrieval info: USED_PORT: empty 0 0 0 0 OUTPUT NODEFVAL "empty"
@@ -182,7 +173,6 @@ END SYN;
 -- Retrieval info: CONNECT: @data 0 0 12 0 data 0 0 12 0
 -- Retrieval info: CONNECT: @rdreq 0 0 0 0 rdreq 0 0 0 0
 -- Retrieval info: CONNECT: @wrreq 0 0 0 0 wrreq 0 0 0 0
--- Retrieval info: CONNECT: almost_full 0 0 0 0 @almost_full 0 0 0 0
 -- Retrieval info: CONNECT: empty 0 0 0 0 @empty 0 0 0 0
 -- Retrieval info: CONNECT: q 0 0 12 0 @q 0 0 12 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL FIFO_Entry.vhd TRUE
