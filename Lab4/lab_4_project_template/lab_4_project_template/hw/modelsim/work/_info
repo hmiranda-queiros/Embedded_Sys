@@ -22,9 +22,9 @@ Vk_3EHc9MLJZB;zO3J6i@e3
 !s100 EV37EQKa@kaSFINa:;R1m3
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1640345178
+Z8 !s110 1640519288
 !i10b 1
-Z9 !s108 1640345178.000000
+Z9 !s108 1640519288.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 Z11 !s107 C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd|
 !i113 1
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Ecamera_interface
-Z15 w1640334932
+Z15 w1640519268
 R1
 R2
 R3
@@ -78,8 +78,8 @@ R3
 DEx4 work 16 camera_interface 0 22 2c4DgCAUof>CC[Pbhdj8K0
 l93
 L30
-V`aELKB8iF:YlY^?fdVSjd2
-!s100 56ZLFPFR]dCF7<h:4LIX[0
+VlK@8FfH=dcK`UQ3aBK``O0
+!s100 QAVjgNzVP3F[H;5X;e[ha1
 R7
 32
 R8
@@ -345,7 +345,7 @@ R12
 R13
 w1640298632
 Etb_camera_ctrl_with_cmos
-Z54 w1640344603
+Z54 w1640518843
 R26
 R27
 R1
@@ -379,8 +379,8 @@ R3
 DEx4 work 24 tb_camera_ctrl_with_cmos 0 22 V6iBFhEV58^S>iFh[>e901
 l59
 L10
-Vjc6dmEH_WW5_=o^5JfkFO2
-!s100 k;]I[eb9l@BzVM2f[CTLW1
+VN8AKjY<[nAd_ZP=bbMAeZ2
+!s100 z@CBW39Vim8QC@e8NHCFX0
 R7
 32
 R8

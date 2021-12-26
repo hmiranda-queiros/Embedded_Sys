@@ -282,7 +282,7 @@ begin
 					NewData						<= '0';
 					CntBurst						<= iRegBurst;
 					
-					if unsigned(usedw_FIFO_Exit) >= iRegBurst then
+					if unsigned(usedw_FIFO_Exit) >= iRegBurst and iRegEnable = '1' then
 						SM_EXIT					<= SendData;
 						rdreq_FIFO_Exit		<= '1';
 					end if;
