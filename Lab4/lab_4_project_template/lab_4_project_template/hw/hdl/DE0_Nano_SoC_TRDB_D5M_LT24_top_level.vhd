@@ -20,54 +20,54 @@ use ieee.std_logic_1164.all;
 entity DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
     port(
         -- ADC
-        ADC_CONVST : out std_logic;
-        ADC_SCK    : out std_logic;
-        ADC_SDI    : out std_logic;
-        ADC_SDO    : in  std_logic;
+--        ADC_CONVST : out std_logic;
+--        ADC_SCK    : out std_logic;
+--        ADC_SDI    : out std_logic;
+--        ADC_SDO    : in  std_logic;
 
         -- ARDUINO
-        ARDUINO_IO      : inout std_logic_vector(15 downto 0);
-        ARDUINO_RESET_N : inout std_logic;
+--        ARDUINO_IO      : inout std_logic_vector(15 downto 0);
+--        ARDUINO_RESET_N : inout std_logic;
 
         -- CLOCK
         FPGA_CLK1_50 : in std_logic;
-        FPGA_CLK2_50 : in std_logic;
-        FPGA_CLK3_50 : in std_logic;
+--        FPGA_CLK2_50 : in std_logic;
+--        FPGA_CLK3_50 : in std_logic;
 
         -- KEY
-        KEY_N : in std_logic_vector(1 downto 0);
+--        KEY_N : in std_logic_vector(1 downto 0);
 
         -- LED
         LED : out std_logic_vector(7 downto 0);
 
         -- SW
-        SW : in std_logic_vector(3 downto 0);
+--        SW : in std_logic_vector(3 downto 0);
 
         -- GPIO_0
-        GPIO_0_LT24_ADC_BUSY     : in  std_logic;
-        GPIO_0_LT24_ADC_CS_N     : out std_logic;
-        GPIO_0_LT24_ADC_DCLK     : out std_logic;
-        GPIO_0_LT24_ADC_DIN      : out std_logic;
-        GPIO_0_LT24_ADC_DOUT     : in  std_logic;
-        GPIO_0_LT24_ADC_PENIRQ_N : in  std_logic;
-        GPIO_0_LT24_CS_N         : out std_logic;
-        GPIO_0_LT24_D            : out std_logic_vector(15 downto 0);
-        GPIO_0_LT24_LCD_ON       : out std_logic;
-        GPIO_0_LT24_RD_N         : out std_logic;
-        GPIO_0_LT24_RESET_N      : out std_logic;
-        GPIO_0_LT24_RS           : out std_logic;
-        GPIO_0_LT24_WR_N         : out std_logic;
+--        GPIO_0_LT24_ADC_BUSY     : in  std_logic;
+--        GPIO_0_LT24_ADC_CS_N     : out std_logic;
+--        GPIO_0_LT24_ADC_DCLK     : out std_logic;
+--        GPIO_0_LT24_ADC_DIN      : out std_logic;
+--        GPIO_0_LT24_ADC_DOUT     : in  std_logic;
+--        GPIO_0_LT24_ADC_PENIRQ_N : in  std_logic;
+--        GPIO_0_LT24_CS_N         : out std_logic;
+--        GPIO_0_LT24_D            : out std_logic_vector(15 downto 0);
+--        GPIO_0_LT24_LCD_ON       : out std_logic;
+--        GPIO_0_LT24_RD_N         : out std_logic;
+--        GPIO_0_LT24_RESET_N      : out std_logic;
+--        GPIO_0_LT24_RS           : out std_logic;
+--        GPIO_0_LT24_WR_N         : out std_logic;
 
         -- GPIO_1
-        GPIO_1_D5M_D       : in    std_logic_vector(11 downto 0);
-        GPIO_1_D5M_FVAL    : in    std_logic;
-        GPIO_1_D5M_LVAL    : in    std_logic;
+        GPIO_1_D5M_D       : inout    std_logic_vector(11 downto 0);
+        GPIO_1_D5M_FVAL    : inout    std_logic;
+        GPIO_1_D5M_LVAL    : inout    std_logic;
         GPIO_1_D5M_PIXCLK  : in    std_logic;
         GPIO_1_D5M_RESET_N : out   std_logic;
         GPIO_1_D5M_SCLK    : inout std_logic;
         GPIO_1_D5M_SDATA   : inout std_logic;
-        GPIO_1_D5M_STROBE  : in    std_logic;
-        GPIO_1_D5M_TRIGGER : out   std_logic;
+        -- GPIO_1_D5M_STROBE  : in    std_logic;
+        -- GPIO_1_D5M_TRIGGER : out   std_logic;
         GPIO_1_D5M_XCLKIN  : out   std_logic;
 
         -- HPS
@@ -192,7 +192,19 @@ architecture rtl of DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
             hps_0_io_hps_io_gpio_inst_GPIO53    : inout std_logic                     := 'X';
             hps_0_io_hps_io_gpio_inst_GPIO54    : inout std_logic                     := 'X';
             hps_0_io_hps_io_gpio_inst_GPIO61    : inout std_logic                     := 'X';
-            pio_leds_external_connection_export : out   std_logic_vector(7 downto 0)
+            pio_leds_external_connection_export : out   std_logic_vector(7 downto 0);
+				camera_ctrl_0_camera_clock_out                         : out   std_logic;                                        -- clock_out
+				camera_ctrl_0_camera_data_in                           : in    std_logic_vector(11 downto 0) := (others => 'X'); -- data_in
+				camera_ctrl_0_camera_line_valid                        : in    std_logic                     := 'X';             -- line_valid
+				camera_ctrl_0_camera_frame_valid                       : in    std_logic                     := 'X';             -- frame_valid
+				camera_ctrl_0_camera_pixel_clock_in                    : in    std_logic                     := 'X';             -- pixel_clock_in
+				camera_ctrl_0_camera_nreset_out                        : out   std_logic;                                        -- nreset_out
+				cmos_sensor_output_generator_0_cmos_sensor_frame_valid : out   std_logic;                                        -- frame_valid
+				cmos_sensor_output_generator_0_cmos_sensor_line_valid  : out   std_logic;                                        -- line_valid
+				cmos_sensor_output_generator_0_cmos_sensor_data        : out   std_logic_vector(11 downto 0);                     -- data
+				i2c_0_i2c_scl                                          : inout std_logic                     := 'X';             -- scl
+				i2c_0_i2c_sda                                          : inout std_logic                     := 'X'              -- sda
+					
         );
     end component soc_system;
 
@@ -200,73 +212,85 @@ begin
 
     u0 : component soc_system
     port map(
-        clk_clk                             => FPGA_CLK1_50,
-        reset_reset_n                       => '1',
-        hps_0_ddr_mem_a                     => HPS_DDR3_ADDR,
-        hps_0_ddr_mem_ba                    => HPS_DDR3_BA,
-        hps_0_ddr_mem_ck                    => HPS_DDR3_CK_P,
-        hps_0_ddr_mem_ck_n                  => HPS_DDR3_CK_N,
-        hps_0_ddr_mem_cke                   => HPS_DDR3_CKE,
-        hps_0_ddr_mem_cs_n                  => HPS_DDR3_CS_N,
-        hps_0_ddr_mem_ras_n                 => HPS_DDR3_RAS_N,
-        hps_0_ddr_mem_cas_n                 => HPS_DDR3_CAS_N,
-        hps_0_ddr_mem_we_n                  => HPS_DDR3_WE_N,
-        hps_0_ddr_mem_reset_n               => HPS_DDR3_RESET_N,
-        hps_0_ddr_mem_dq                    => HPS_DDR3_DQ,
-        hps_0_ddr_mem_dqs                   => HPS_DDR3_DQS_P,
-        hps_0_ddr_mem_dqs_n                 => HPS_DDR3_DQS_N,
-        hps_0_ddr_mem_odt                   => HPS_DDR3_ODT,
-        hps_0_ddr_mem_dm                    => HPS_DDR3_DM,
-        hps_0_ddr_oct_rzqin                 => HPS_DDR3_RZQ,
-        hps_0_io_hps_io_emac1_inst_TX_CLK   => HPS_ENET_GTX_CLK,
-        hps_0_io_hps_io_emac1_inst_TX_CTL   => HPS_ENET_TX_EN,
-        hps_0_io_hps_io_emac1_inst_TXD0     => HPS_ENET_TX_DATA(0),
-        hps_0_io_hps_io_emac1_inst_TXD1     => HPS_ENET_TX_DATA(1),
-        hps_0_io_hps_io_emac1_inst_TXD2     => HPS_ENET_TX_DATA(2),
-        hps_0_io_hps_io_emac1_inst_TXD3     => HPS_ENET_TX_DATA(3),
-        hps_0_io_hps_io_emac1_inst_RX_CLK   => HPS_ENET_RX_CLK,
-        hps_0_io_hps_io_emac1_inst_RX_CTL   => HPS_ENET_RX_DV,
-        hps_0_io_hps_io_emac1_inst_RXD0     => HPS_ENET_RX_DATA(0),
-        hps_0_io_hps_io_emac1_inst_RXD1     => HPS_ENET_RX_DATA(1),
-        hps_0_io_hps_io_emac1_inst_RXD2     => HPS_ENET_RX_DATA(2),
-        hps_0_io_hps_io_emac1_inst_RXD3     => HPS_ENET_RX_DATA(3),
-        hps_0_io_hps_io_emac1_inst_MDIO     => HPS_ENET_MDIO,
-        hps_0_io_hps_io_emac1_inst_MDC      => HPS_ENET_MDC,
-        hps_0_io_hps_io_sdio_inst_CLK       => HPS_SD_CLK,
-        hps_0_io_hps_io_sdio_inst_CMD       => HPS_SD_CMD,
-        hps_0_io_hps_io_sdio_inst_D0        => HPS_SD_DATA(0),
-        hps_0_io_hps_io_sdio_inst_D1        => HPS_SD_DATA(1),
-        hps_0_io_hps_io_sdio_inst_D2        => HPS_SD_DATA(2),
-        hps_0_io_hps_io_sdio_inst_D3        => HPS_SD_DATA(3),
-        hps_0_io_hps_io_usb1_inst_CLK       => HPS_USB_CLKOUT,
-        hps_0_io_hps_io_usb1_inst_STP       => HPS_USB_STP,
-        hps_0_io_hps_io_usb1_inst_DIR       => HPS_USB_DIR,
-        hps_0_io_hps_io_usb1_inst_NXT       => HPS_USB_NXT,
-        hps_0_io_hps_io_usb1_inst_D0        => HPS_USB_DATA(0),
-        hps_0_io_hps_io_usb1_inst_D1        => HPS_USB_DATA(1),
-        hps_0_io_hps_io_usb1_inst_D2        => HPS_USB_DATA(2),
-        hps_0_io_hps_io_usb1_inst_D3        => HPS_USB_DATA(3),
-        hps_0_io_hps_io_usb1_inst_D4        => HPS_USB_DATA(4),
-        hps_0_io_hps_io_usb1_inst_D5        => HPS_USB_DATA(5),
-        hps_0_io_hps_io_usb1_inst_D6        => HPS_USB_DATA(6),
-        hps_0_io_hps_io_usb1_inst_D7        => HPS_USB_DATA(7),
-        hps_0_io_hps_io_spim1_inst_CLK      => HPS_SPIM_CLK,
-        hps_0_io_hps_io_spim1_inst_MOSI     => HPS_SPIM_MOSI,
-        hps_0_io_hps_io_spim1_inst_MISO     => HPS_SPIM_MISO,
-        hps_0_io_hps_io_spim1_inst_SS0      => HPS_SPIM_SS,
-        hps_0_io_hps_io_uart0_inst_RX       => HPS_UART_RX,
-        hps_0_io_hps_io_uart0_inst_TX       => HPS_UART_TX,
-        hps_0_io_hps_io_i2c0_inst_SDA       => HPS_I2C0_SDAT,
-        hps_0_io_hps_io_i2c0_inst_SCL       => HPS_I2C0_SCLK,
-        hps_0_io_hps_io_i2c1_inst_SDA       => HPS_I2C1_SDAT,
-        hps_0_io_hps_io_i2c1_inst_SCL       => HPS_I2C1_SCLK,
-        hps_0_io_hps_io_gpio_inst_GPIO09    => HPS_CONV_USB_N,
-        hps_0_io_hps_io_gpio_inst_GPIO35    => HPS_ENET_INT_N,
-        hps_0_io_hps_io_gpio_inst_GPIO40    => HPS_LTC_GPIO,
-        hps_0_io_hps_io_gpio_inst_GPIO53    => HPS_LED,
-        hps_0_io_hps_io_gpio_inst_GPIO54    => HPS_KEY_N,
-        hps_0_io_hps_io_gpio_inst_GPIO61    => HPS_GSENSOR_INT,
-        pio_leds_external_connection_export => LED
+			clk_clk                             => FPGA_CLK1_50,
+			reset_reset_n                       => '1',
+			hps_0_ddr_mem_a                     => HPS_DDR3_ADDR,
+			hps_0_ddr_mem_ba                    => HPS_DDR3_BA,
+			hps_0_ddr_mem_ck                    => HPS_DDR3_CK_P,
+			hps_0_ddr_mem_ck_n                  => HPS_DDR3_CK_N,
+			hps_0_ddr_mem_cke                   => HPS_DDR3_CKE,
+			hps_0_ddr_mem_cs_n                  => HPS_DDR3_CS_N,
+			hps_0_ddr_mem_ras_n                 => HPS_DDR3_RAS_N,
+			hps_0_ddr_mem_cas_n                 => HPS_DDR3_CAS_N,
+			hps_0_ddr_mem_we_n                  => HPS_DDR3_WE_N,
+			hps_0_ddr_mem_reset_n               => HPS_DDR3_RESET_N,
+			hps_0_ddr_mem_dq                    => HPS_DDR3_DQ,
+			hps_0_ddr_mem_dqs                   => HPS_DDR3_DQS_P,
+			hps_0_ddr_mem_dqs_n                 => HPS_DDR3_DQS_N,
+			hps_0_ddr_mem_odt                   => HPS_DDR3_ODT,
+			hps_0_ddr_mem_dm                    => HPS_DDR3_DM,
+			hps_0_ddr_oct_rzqin                 => HPS_DDR3_RZQ,
+			hps_0_io_hps_io_emac1_inst_TX_CLK   => HPS_ENET_GTX_CLK,
+			hps_0_io_hps_io_emac1_inst_TX_CTL   => HPS_ENET_TX_EN,
+			hps_0_io_hps_io_emac1_inst_TXD0     => HPS_ENET_TX_DATA(0),
+			hps_0_io_hps_io_emac1_inst_TXD1     => HPS_ENET_TX_DATA(1),
+			hps_0_io_hps_io_emac1_inst_TXD2     => HPS_ENET_TX_DATA(2),
+			hps_0_io_hps_io_emac1_inst_TXD3     => HPS_ENET_TX_DATA(3),
+			hps_0_io_hps_io_emac1_inst_RX_CLK   => HPS_ENET_RX_CLK,
+			hps_0_io_hps_io_emac1_inst_RX_CTL   => HPS_ENET_RX_DV,
+			hps_0_io_hps_io_emac1_inst_RXD0     => HPS_ENET_RX_DATA(0),
+			hps_0_io_hps_io_emac1_inst_RXD1     => HPS_ENET_RX_DATA(1),
+			hps_0_io_hps_io_emac1_inst_RXD2     => HPS_ENET_RX_DATA(2),
+			hps_0_io_hps_io_emac1_inst_RXD3     => HPS_ENET_RX_DATA(3),
+			hps_0_io_hps_io_emac1_inst_MDIO     => HPS_ENET_MDIO,
+			hps_0_io_hps_io_emac1_inst_MDC      => HPS_ENET_MDC,
+			hps_0_io_hps_io_sdio_inst_CLK       => HPS_SD_CLK,
+			hps_0_io_hps_io_sdio_inst_CMD       => HPS_SD_CMD,
+			hps_0_io_hps_io_sdio_inst_D0        => HPS_SD_DATA(0),
+			hps_0_io_hps_io_sdio_inst_D1        => HPS_SD_DATA(1),
+			hps_0_io_hps_io_sdio_inst_D2        => HPS_SD_DATA(2),
+			hps_0_io_hps_io_sdio_inst_D3        => HPS_SD_DATA(3),
+			hps_0_io_hps_io_usb1_inst_CLK       => HPS_USB_CLKOUT,
+			hps_0_io_hps_io_usb1_inst_STP       => HPS_USB_STP,
+			hps_0_io_hps_io_usb1_inst_DIR       => HPS_USB_DIR,
+			hps_0_io_hps_io_usb1_inst_NXT       => HPS_USB_NXT,
+			hps_0_io_hps_io_usb1_inst_D0        => HPS_USB_DATA(0),
+			hps_0_io_hps_io_usb1_inst_D1        => HPS_USB_DATA(1),
+			hps_0_io_hps_io_usb1_inst_D2        => HPS_USB_DATA(2),
+			hps_0_io_hps_io_usb1_inst_D3        => HPS_USB_DATA(3),
+			hps_0_io_hps_io_usb1_inst_D4        => HPS_USB_DATA(4),
+			hps_0_io_hps_io_usb1_inst_D5        => HPS_USB_DATA(5),
+			hps_0_io_hps_io_usb1_inst_D6        => HPS_USB_DATA(6),
+			hps_0_io_hps_io_usb1_inst_D7        => HPS_USB_DATA(7),
+			hps_0_io_hps_io_spim1_inst_CLK      => HPS_SPIM_CLK,
+			hps_0_io_hps_io_spim1_inst_MOSI     => HPS_SPIM_MOSI,
+			hps_0_io_hps_io_spim1_inst_MISO     => HPS_SPIM_MISO,
+			hps_0_io_hps_io_spim1_inst_SS0      => HPS_SPIM_SS,
+			hps_0_io_hps_io_uart0_inst_RX       => HPS_UART_RX,
+			hps_0_io_hps_io_uart0_inst_TX       => HPS_UART_TX,
+			hps_0_io_hps_io_i2c0_inst_SDA       => HPS_I2C0_SDAT,
+			hps_0_io_hps_io_i2c0_inst_SCL       => HPS_I2C0_SCLK,
+			hps_0_io_hps_io_i2c1_inst_SDA       => HPS_I2C1_SDAT,
+			hps_0_io_hps_io_i2c1_inst_SCL       => HPS_I2C1_SCLK,
+			hps_0_io_hps_io_gpio_inst_GPIO09    => HPS_CONV_USB_N,
+			hps_0_io_hps_io_gpio_inst_GPIO35    => HPS_ENET_INT_N,
+			hps_0_io_hps_io_gpio_inst_GPIO40    => HPS_LTC_GPIO,
+			hps_0_io_hps_io_gpio_inst_GPIO53    => HPS_LED,
+			hps_0_io_hps_io_gpio_inst_GPIO54    => HPS_KEY_N,
+			hps_0_io_hps_io_gpio_inst_GPIO61    => HPS_GSENSOR_INT,
+			pio_leds_external_connection_export => LED,
+			camera_ctrl_0_camera_clock_out                         => GPIO_1_D5M_XCLKIN,					--                       camera_ctrl_0_camera.clock_out
+			camera_ctrl_0_camera_data_in                           => GPIO_1_D5M_D,                   --                                           .data_in
+			camera_ctrl_0_camera_line_valid                        => GPIO_1_D5M_LVAL,                --                                           .line_valid
+			camera_ctrl_0_camera_frame_valid                       => GPIO_1_D5M_FVAL,                --                                           .frame_valid
+			camera_ctrl_0_camera_pixel_clock_in                    => GPIO_1_D5M_PIXCLK ,             --                                           .pixel_clock_in
+			camera_ctrl_0_camera_nreset_out                        => GPIO_1_D5M_RESET_N,             --                                           .nreset_out
+			cmos_sensor_output_generator_0_cmos_sensor_frame_valid => GPIO_1_D5M_FVAL,						-- cmos_sensor_output_generator_0_cmos_sensor.frame_valid
+			cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					--                                           .line_valid
+			cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				--                                           .data
+			i2c_0_i2c_scl                                          => GPIO_1_D5M_SCLK,                --                                  i2c_0_i2c.scl
+			i2c_0_i2c_sda                                          => GPIO_1_D5M_SDATA                --                                           .sda
+		
     );
 
-end;
+end rtl;
