@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\fpga_intro\\fpga_intro\\sw\\nios\\application\\fpga_intro
-newSoftwareExampleWizardPage.sopcinfoFile=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\fpga_intro\\fpga_intro\\hw\\quartus\\system.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\fpga_intro\\fpga_intro\\sw\\nios\\application\\fpga_intro_bsp
+newSoftwareExampleWizardPage.defaultLocation=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\Lab4\\lab_4_project_template\\lab_4_project_template\\sw\\nios\\application
+newSoftwareExampleWizardPage.sopcinfoFile=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\Lab4\\lab_4_project_template\\lab_4_project_template\\hw\\quartus\\soc_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=C\:\\Users\\hugom\\OneDrive\\Documents\\Cours\\Embedded_sys\\Lab4\\lab_4_project_template\\lab_4_project_template\\sw\\nios\\camera_project_bsp

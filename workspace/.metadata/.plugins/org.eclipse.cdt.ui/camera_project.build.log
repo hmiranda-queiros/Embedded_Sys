@@ -1,0 +1,9 @@
+21:27:34 **** Incremental Build of configuration Nios II for project camera_project ****
+make all 
+Info: Building C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
+[BSP build complete]
+[camera_project build complete]
+
+21:27:36 Build Finished (took 2s.75ms)
+

@@ -5,12 +5,12 @@
 #include "cmos_sensor_output_generator/cmos_sensor_output_generator.h"
 #include "cmos_sensor_output_generator/cmos_sensor_output_generator_regs.h"
 
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE       (0x0000) /* cmos_sensor_output_generator base address from system.h (ADAPT TO YOUR DESIGN) */
+#define CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE       (0x10000820) /* cmos_sensor_output_generator base address from system.h (ADAPT TO YOUR DESIGN) */
 #define CMOS_SENSOR_OUTPUT_GENERATOR_0_PIX_DEPTH  (12)     /* cmos_sensor_output_generator pix depth from system.h (ADAPT TO YOUR DESIGN) */
 #define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH  (640)    /* cmos_sensor_output_generator max width from system.h (ADAPT TO YOUR DESIGN) */
 #define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_HEIGHT (480)    /* cmos_sensor_output_generator max height from system.h (ADAPT TO YOUR DESIGN) */
 
-int main(void) {
+int main2(void) {
     cmos_sensor_output_generator_dev cmos_sensor_output_generator = cmos_sensor_output_generator_inst(CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE,
                                                                                                       CMOS_SENSOR_OUTPUT_GENERATOR_0_PIX_DEPTH,
                                                                                                       CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH,
