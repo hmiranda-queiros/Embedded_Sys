@@ -62,7 +62,7 @@ architecture main of Camera_Ctrl is
 			AM_ByteEnable	: out std_logic_vector(3 downto 0);
 			AM_BurstCount	: out std_logic_vector(31 downto 0);
 			AM_WaitRequest	: in std_logic;
-			EndBuffer		: out std_logic;
+			EndBuffer		: inout std_logic;
 			
 			NewData 			: in std_logic;
 			DataAck			: out std_logic;

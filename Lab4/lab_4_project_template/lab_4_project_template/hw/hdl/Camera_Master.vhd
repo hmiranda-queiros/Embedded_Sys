@@ -17,7 +17,7 @@ entity Camera_Master is
 			NewData 			: in std_logic;
 			DataAck			: out std_logic;
 			NewPixels		: in std_logic_vector(31 downto 0);
-			EndBuffer		: out std_logic;
+			EndBuffer		: inout std_logic;
 			
 			iRegAdr 			: in unsigned(31 downto 0);
 			iRegLength 		: in unsigned(31 downto 0);
@@ -60,8 +60,8 @@ begin
 					if iRegLength /= 0 then 									-- Start if Length /=0
 						SM 			<= WaitData;
 						CntAddress	<= iRegAdr;
-						CntLength	<= iRegLength;
-						CntBurst		<= iRegBurst; 
+						CntLength	<= iRegLength; 
+						CntBurst	<= iRegBurst;
 					end if;
 					
 				when WaitData =>
@@ -92,7 +92,8 @@ begin
 						AM_DataWrite	<= (others => '0');
 						AM_Write 		<= '0';
 						AM_ByteEnable 	<= "0000";
-						DataAck 			<= '1';
+						DataAck 		<= '1';
+						CntBurst		<= iRegBurst;
 					end if;
 					
 				when AcqData => 													-- Wait end of request
@@ -111,7 +112,7 @@ begin
 					
 				when WaitCPU => 													-- Wait for CPU to start a new frame
 					EndBuffer	<= '0';
-					if iRegEnable = '1' then
+					if iRegEnable = '1' and EndBuffer = '0' then
 						SM <= Idle;
 					end if;
 						

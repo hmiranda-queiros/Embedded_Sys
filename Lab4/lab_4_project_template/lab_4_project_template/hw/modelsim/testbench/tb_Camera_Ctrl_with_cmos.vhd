@@ -40,8 +40,8 @@ architecture test of tb_Camera_Ctrl_with_cmos is
     constant PIX_DEPTH         : positive := 12;
     constant MAX_WIDTH         : positive := 1920;
     constant MAX_HEIGHT        : positive := 1080;
-    constant FRAME_WIDTH       : positive := 4;
-    constant FRAME_HEIGHT      : positive := 4;
+    constant FRAME_WIDTH       : positive := 8;															-- Size Row
+    constant FRAME_HEIGHT      : positive := 8;															-- Size Column
     constant FRAME_FRAME_BLANK : positive := 1;
     constant FRAME_LINE_BLANK  : natural  := 1;
     constant LINE_LINE_BLANK   : positive := 1;
@@ -152,6 +152,25 @@ begin
 			AS_Adr		<= (others => '0');
 		end procedure RD;
 		
+		procedure SimCPU is
+		begin
+			wait until rising_edge(Clk);
+			
+			AS_Read		<= '1';
+			AS_Adr		<= std_logic_vector(to_unsigned(2, AS_Adr'length));
+			
+			wait for CLK_PERIOD * 2;
+			
+			wait until unsigned(AS_DataRead) = 0 ;
+			
+			wait until rising_edge(Clk);
+			
+			AS_Read		<= '0';
+			AS_Adr		<= (others => '0');
+			
+			WR(2, 1);																-- Writes RegEnable	
+		end procedure SimCPU;
+		
 		-------------------------- CMOS -------------------------------------
 		
 		procedure write_register(constant ofst : in std_logic_vector;
@@ -239,16 +258,19 @@ begin
 		check_busy;
 		
 		--Test
-		WR(0, 777);			-- Writes RegAdr
+		WR(0, 0);			-- Writes RegAdr
 		WR(3, 2);			-- Writes RegBurst
-		WR(1, 16);			-- Writes RegLength
-		WR(4, 0);			-- Writes RegLength
+		WR(1, 8);			-- Writes RegLength (Row_Size * Column_Size / 8)
+		WR(4, 0);			-- Writes RegLight
 		WR(2, 1);			-- Writes RegEnable
 		
 		RD(0);				-- Reads RegAdr
 		RD(3);				-- Reads RegBurst
 		RD(1);				-- Reads RegLength
+		RD(4);				-- Reads RegLight
 		RD(2);				-- Reads RegEnable
+		
+		SimCPU;
 		
 		
 		wait;

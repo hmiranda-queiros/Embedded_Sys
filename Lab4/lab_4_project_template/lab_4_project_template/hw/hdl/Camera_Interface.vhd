@@ -59,7 +59,7 @@ architecture comp of Camera_Interface is
 	signal G2						: std_logic_vector(11 downto 0);
 	signal G							: std_logic_vector(11 downto 0);
 	signal B							: std_logic_vector(11 downto 0);
-	signal CntPixels				: unsigned(2 downto 0);
+	signal CntPixels				: unsigned(1 downto 0);
 	signal CntBurst				: unsigned(31 downto 0);
 	
 
@@ -136,10 +136,6 @@ begin
 			wrreq_FIFO_Entry_2		<= '0';
 			SM_Entry				<= Idle;
 			Clear 					<= '1';
-			
-		elsif iRegEnable = '0' then
-			SM_Entry	<= Idle;
-			Clear		<= '1';
 		end if;
 			
 		case SM_Entry is
@@ -180,6 +176,11 @@ begin
 				end if;		
 		end case;
 		
+		if iRegEnable = '0' then
+			SM_Entry	<= Idle;
+			Clear		<= '1';
+		end if;
+		
 	end process;
 	
 	
@@ -200,10 +201,6 @@ begin
 			SM 							<= Idle;
 		
 		elsif rising_edge(Clk) then
-			if iRegEnable = '0' then
-				SM <= Idle;
-			end if;
-			
 			case SM is
 				when Idle =>
 					rdreq_FIFO_Entry_1		<= '0';
@@ -274,6 +271,11 @@ begin
 						SM					<= WaitRead;
 					end if;
 			end case;
+			
+			if iRegEnable = '0' then
+				SM <= Idle;
+			end if;
+			
 		end if;
 	end process;
 	
@@ -286,18 +288,12 @@ begin
 			NewData						<= '0';
 			CntBurst						<= (others => '0');
 			rdreq_FIFO_Exit			<= '0';
-			NewPixels					<= (others => '0');
 			SM_Exit				<= Idle;
 			
 		elsif rising_edge(Clk) then
-			if iRegEnable = '0' then
-				SM_Exit <= Idle;
-			end if;
-			
 			case SM_Exit is
 				when Idle =>
 					rdreq_FIFO_Exit			<= '0';
-					NewPixels					<= (others => '0');
 					NewData						<= '0';
 					CntBurst						<= iRegBurst;
 					
@@ -315,12 +311,16 @@ begin
 						
 					else
 						rdreq_FIFO_Exit	<= '0';
-						if DataAck 	<= '1' then
+						if DataAck 	= '1' then
 							NewData	<= '0';
 							SM_Exit		<= Idle;
 						end if;
 					end if;
-			end case;	
+			end case;
+			
+			if iRegEnable = '0' then
+				SM_Exit <= Idle;
+			end if;
 		end if;
 	end process;
 

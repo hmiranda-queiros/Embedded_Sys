@@ -1,17 +1,4 @@
-C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/modelsim/testbench/tb_Camera_Ctrl_with_cmos.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package cmos_sensor_output_generator_constants
--- Compiling entity tb_Camera_Ctrl_with_cmos
--- Compiling architecture test of tb_Camera_Ctrl_with_cmos
--- Loading entity cmos_sensor_output_generator
--- Loading entity Camera_Ctrl
-
-} {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
+C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Master.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -19,6 +6,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity Camera_Master
 -- Compiling architecture comp of Camera_Master
+
+} {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Interface.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Camera_Interface
+-- Compiling architecture comp of Camera_Interface
 
 } {} {}} C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/hdl/Camera_Ctrl.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
