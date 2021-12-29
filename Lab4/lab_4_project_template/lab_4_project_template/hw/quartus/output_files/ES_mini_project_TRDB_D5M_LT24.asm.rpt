@@ -1,5 +1,5 @@
 Assembler report for ES_mini_project_TRDB_D5M_LT24
-Tue Dec 28 18:56:09 2021
+Wed Dec 29 12:04:56 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Dec 28 18:56:09 2021 ;
+; Assembler Status      ; Successful - Wed Dec 29 12:04:56 2021 ;
 ; Revision Name         ; ES_mini_project_TRDB_D5M_LT24         ;
 ; Top-level Entity Name ; DE0_Nano_SoC_TRDB_D5M_LT24_top_level  ;
 ; Family                ; Cyclone V                             ;
@@ -78,8 +78,8 @@ refer to the applicable agreement for further details.
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                                                                                                 ;
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0387B537                                                                                                                                                                              ;
-; Checksum       ; 0x0387B537                                                                                                                                                                              ;
+; JTAG usercode  ; 0x03881871                                                                                                                                                                              ;
+; Checksum       ; 0x03881871                                                                                                                                                                              ;
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Dec 28 18:55:55 2021
+    Info: Processing started: Wed Dec 29 12:04:42 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off ES_mini_project_TRDB_D5M_LT24 -c ES_mini_project_TRDB_D5M_LT24
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
@@ -97,12 +97,10 @@ Info (115017): Design contains a time-limited core -- only a single, time-limite
 Warning (210042): Can't convert time-limited SOF into POF, HEX File, TTF, or RBF
 Warning (210039): File C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/output_files/ES_mini_project_TRDB_D5M_LT24_time_limited.sof contains one or more time-limited megafunctions that support the Intel FPGA IP Evaluation Mode feature that will not work after the hardware evaluation time expires. Refer to the Messages window for evaluation time details.
 Info (210040): SRAM Object File C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/output_files/ES_mini_project_TRDB_D5M_LT24_time_limited.sof contains time-limited megafunction that supports Intel FPGA IP Evaluation Mode feature -- Vendor: 0x6AF7, Product: 0x00A2
-Warning (11713): The configuration of the Hard Processor Subsystem (HPS) within this design has changed.
-The Preloader software that initializes the HPS requires an update.
-Using hps_isw_handoff/soc_system_hps_0/, run the Preloader Support Package Generator to update your Preloader software
-Info: Quartus Prime Assembler was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4911 megabytes
-    Info: Processing ended: Tue Dec 28 18:56:09 2021
+Info (11878): Hard Processor Subsystem configuration has not changed and a Preloader software update is not required
+Info: Quartus Prime Assembler was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4912 megabytes
+    Info: Processing ended: Wed Dec 29 12:04:56 2021
     Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:14
 

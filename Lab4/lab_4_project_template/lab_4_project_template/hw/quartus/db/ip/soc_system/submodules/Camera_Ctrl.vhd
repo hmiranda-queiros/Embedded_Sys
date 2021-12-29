@@ -43,12 +43,12 @@ architecture main of Camera_Ctrl is
 	signal iRegLength 	: unsigned(31 downto 0); 		
 	signal iRegEnable		: std_logic; 
 	signal iRegBurst		: unsigned(31 downto 0);
-	signal iRegLight	: std_logic;
+	signal iRegLight		: std_logic;
 	
 	signal NewData 		: std_logic; 						
 	signal DataAck			: std_logic;								
 	signal NewPixels		: std_logic_vector(31 downto 0);
-	signal EndBuffer	: std_logic;
+	signal EndBuffer		: std_logic;
 
 	
 	component Camera_Master is 
@@ -113,7 +113,7 @@ begin
 				AM_DataWrite	=> AM_DataWrite,
 				AM_ByteEnable	=> AM_ByteEnable,
 				AM_BurstCount	=> AM_BurstCount,
-				AM_WaitRequest 	=> AM_WaitRequest,
+				AM_WaitRequest => AM_WaitRequest,
 				EndBuffer		=> EndBuffer,
 			
 				NewData 			=> NewData,
@@ -146,21 +146,21 @@ begin
 			iRegEnable		=> iRegEnable,
 			iRegBurst		=> iRegBurst,
 			iRegLight		=> iRegLight,
-			AM_WaitRequest 	=> AM_WaitRequest
+			AM_WaitRequest => AM_WaitRequest
 
 		);
 			
 	-- Avalon slave write to registers.
 	process(Clk, nReset)
 	begin
-		if nReset = '0' then
+		if nReset = '0' then							-- Default values at Reset
 			iRegAdr			<= (others => '0');
 			iRegLength		<= (others => '0');
 			iRegEnable		<= '0';
 			iRegBurst		<= (others => '0');
 			
 		elsif rising_edge(Clk) then
-			if EndBuffer = '1' then
+			if EndBuffer = '1' then					-- disable the Camera interface when it finishes writting a full frame in memory
 				iRegEnable <= '0';
 			end if;
 			if AS_Write = '1' then
@@ -169,7 +169,7 @@ begin
 					when "001"  => iRegLength		<= unsigned(AS_DataWrite);			-- sets the length of one frame in memory in number of 32 bit words
 					when "010"  => iRegEnable		<= AS_DataWrite(0);					-- sets the state of the camera interface
 					when "011"  => iRegBurst		<= unsigned(AS_DataWrite);			-- sets the lentgth of the busrt to transfer
-					when "100"	=> iRegLight		<= AS_DataWrite(0);
+					when "100"	=> iRegLight		<= AS_DataWrite(0);					-- sets the lighting conditions of the camera
 					when others => null;
 				end case;
 			end if;
@@ -188,7 +188,7 @@ begin
 					when "001"  => AS_DataRead		<=  std_logic_vector(iRegLength);			-- reads the length of one frame in memory in number of 32 bit words
 					when "010"  => AS_DataRead(0)	<=  iRegEnable;									-- reads the state of the camera interface
 					when "011"  => AS_DataRead		<=  std_logic_vector(iRegBurst);				-- reads the lentgth of the busrt to transfer
-					when "100"	=> AS_DataRead(0)	<=	iRegLight;
+					when "100"	=> AS_DataRead(0)	<=	iRegLight;										-- reads the lighting conditions of the camera
 					when others => null;
 				end case;
 			end if;
