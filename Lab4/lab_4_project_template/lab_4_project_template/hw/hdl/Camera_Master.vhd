@@ -41,7 +41,7 @@ begin
 	-- Acquisition process
 	process (Clk, nReset)
 	begin
-		if nReset = '0' then 													-- Default values at Reset
+		if nReset = '0' then 														-- Default values at Reset
 			DataAck 				<= '0';
 			SM 					<= Idle;
 			AM_Write 			<= '0';
@@ -57,66 +57,70 @@ begin
 		elsif rising_edge(Clk) then 
 			case SM is
 				when Idle =>
-					if iRegLength /= 0 then 									-- Start if Length /=0
+					if iRegLength /= 0 then 										-- Starts if iRegLength /=0
 						SM 			<= WaitData;
 						CntAddress	<= iRegAdr;
 						CntLength	<= iRegLength; 
-						CntBurst	<= iRegBurst;
+						CntBurst		<= iRegBurst;
 					end if;
 					
 				when WaitData =>
-					if iRegLength = 0 then 										-- Idle if Length =0 -> go Idle
+					if iRegLength = 0 then 											-- goes Idle if iRegLength = 0 
 						SM <= Idle;
-					elsif NewData = '1' then 									-- Receive new data burst 
+					elsif NewData = '1' then 										-- Receives new data burst 
 						AM_Adr 			<= std_logic_vector(CntAddress);
 						AM_Write 		<= '1';
 						AM_BurstCount 	<= std_logic_vector(iRegBurst);
 						AM_ByteEnable 	<= "1111";
 						AM_DataWrite	<= NewPixels;
-						if AM_WaitRequest = '0' then
-							CntBurst 		<= CntBurst - 1;
-							CntAddress 		<= CntAddress + 4;
-							SM 				<= WriteData;
+						if AM_WaitRequest = '0' then								-- Can receive next 32 bit word when the first is sent
+							CntBurst 	<= CntBurst - 1;
+							CntAddress 	<= CntAddress + 4;
+							SM 			<= WriteData;
 						end if;
 					end if;
 					
-				when WriteData => 												-- Write on Avalon Bus
+				when WriteData => 													-- Writes on Avalon Bus
 					AM_DataWrite		<= NewPixels;
-					if AM_WaitRequest = '0' and CntBurst /= 0 then
+					if AM_WaitRequest = '0' and CntBurst /= 0 then			-- Can receive next 32 bit word when the previous is sent
 						CntBurst 		<= CntBurst - 1;
 						CntAddress 		<= CntAddress + 4;
-					elsif CntBurst = 0 then										-- Burst tranfer finished
+					elsif CntBurst = 0 then											-- Burst transfer finished
 						SM 				<= AcqData;
 						AM_Adr 			<= (others => '0');
 						AM_BurstCount	<= (others => '0');
 						AM_DataWrite	<= (others => '0');
 						AM_Write 		<= '0';
 						AM_ByteEnable 	<= "0000";
-						DataAck 		<= '1';
-						CntBurst		<= iRegBurst;
+						DataAck 			<= '1';
+						CntBurst			<= iRegBurst;
 					end if;
 					
-				when AcqData => 													-- Wait end of request
+				when AcqData => 														-- Waits end of request
 					if NewData <= '0' then
 						DataAck <= '0';
-						SM <= WaitData;
 						
-						if CntLength /= iRegBurst then 						-- Not End of buffer → new address
-							CntLength <= CntLength - iRegBurst;
-						else 															-- Yes → desable camera interface and send flag to CPU
+						if CntLength /= iRegBurst then 							-- Not End of buffer → goes back to WaitData for a new Burst Transfer
+							CntLength	<= CntLength - iRegBurst;
+							SM				<= WaitData;
+						else 																-- Yes → disable camera interface and put EndBuffer to '1'
 							EndBuffer	<= '1';
 							SM 			<= WaitCPU;
 						end if;
 						
 					end if;
 					
-				when WaitCPU => 													-- Wait for CPU to start a new frame
+				when WaitCPU => 														-- Waits for CPU polling to start a new frame
 					EndBuffer	<= '0';
 					if iRegEnable = '1' and EndBuffer = '0' then
-						SM <= Idle;
-					end if;
-						
+						SM 		<= Idle;
+					end if;	
 			end case;
+			
+			if iRegEnable = '0' then												-- When acquisition is disabled, state goes to WaitCPU
+				SM		<= WaitCPU;
+			end if;
+			
 		end if;
 		
 	end process;

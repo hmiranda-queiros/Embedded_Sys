@@ -279,17 +279,17 @@ begin
 			hps_0_io_hps_io_gpio_inst_GPIO54    => HPS_KEY_N,
 			hps_0_io_hps_io_gpio_inst_GPIO61    => HPS_GSENSOR_INT,
 			pio_leds_external_connection_export => LED,
-			camera_ctrl_0_camera_clock_out                         => GPIO_1_D5M_XCLKIN,					--                       camera_ctrl_0_camera.clock_out
-			camera_ctrl_0_camera_data_in                           => GPIO_1_D5M_D,                   --                                           .data_in
-			camera_ctrl_0_camera_line_valid                        => GPIO_1_D5M_LVAL,                --                                           .line_valid
-			camera_ctrl_0_camera_frame_valid                       => GPIO_1_D5M_FVAL,                --                                           .frame_valid
-			camera_ctrl_0_camera_pixel_clock_in                    => GPIO_1_D5M_PIXCLK ,             --                                           .pixel_clock_in
-			camera_ctrl_0_camera_nreset_out                        => GPIO_1_D5M_RESET_N,             --                                           .nreset_out
+			camera_ctrl_0_camera_clock_out                         => GPIO_1_D5M_XCLKIN,					-- camera_ctrl_0_camera.clock_out
+			camera_ctrl_0_camera_data_in                           => GPIO_1_D5M_D,                   -- data_in
+			camera_ctrl_0_camera_line_valid                        => GPIO_1_D5M_LVAL,                -- line_valid
+			camera_ctrl_0_camera_frame_valid                       => GPIO_1_D5M_FVAL,                -- frame_valid
+			camera_ctrl_0_camera_pixel_clock_in                    => GPIO_1_D5M_PIXCLK ,             -- pixel_clock_in
+			camera_ctrl_0_camera_nreset_out                        => GPIO_1_D5M_RESET_N,             -- nreset_out
 			cmos_sensor_output_generator_0_cmos_sensor_frame_valid => GPIO_1_D5M_FVAL,						-- cmos_sensor_output_generator_0_cmos_sensor.frame_valid
-			cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					--                                           .line_valid
-			cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				--                                           .data
-			i2c_0_i2c_scl                                          => GPIO_1_D5M_SCLK,                --                                  i2c_0_i2c.scl
-			i2c_0_i2c_sda                                          => GPIO_1_D5M_SDATA                --                                           .sda
+			cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					-- line_valid
+			cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				-- data
+			i2c_0_i2c_scl                                          => GPIO_1_D5M_SCLK,                -- i2c_0_i2c.scl
+			i2c_0_i2c_sda                                          => GPIO_1_D5M_SDATA                -- sda
 		
     );
 

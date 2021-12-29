@@ -33,7 +33,7 @@ architecture comp of Camera_Interface is
 	type state_Entry 				is (Idle, WaitLine1, WaitLine2, ReadLine1, ReadLine2);
 	type state_Exit 				is (Idle, SendData);
 	signal SM						: state;
-	signal SM_Entry					: state_Entry;
+	signal SM_Entry				: state_Entry;
 	signal SM_Exit					: state_Exit;
 	
 	signal wrreq_FIFO_Entry_1	: std_logic;
@@ -123,7 +123,7 @@ begin
 			usedw	 	=> usedw_FIFO_Exit
 		);
 		
-	
+	-- Continuously updates these output signals
 	RESETn <= nReset;
 	XCLKIN <= Clk;
 	
@@ -131,15 +131,16 @@ begin
 	process (nReset, LVAL, FVAL, iRegEnable)
 	begin
 		Clear <= '0';
-		if nReset = '0' then
+		
+		if nReset = '0' then										-- Default values at Reset
 			wrreq_FIFO_Entry_1		<= '0';
 			wrreq_FIFO_Entry_2		<= '0';
-			SM_Entry				<= Idle;
-			Clear 					<= '1';
+			SM_Entry						<= Idle;
+			Clear 						<= '1';
 		end if;
 			
 		case SM_Entry is
-			when Idle =>
+			when Idle =>											-- Stays idle while a frame ends and camera interface is enabled
 				wrreq_FIFO_Entry_1		<= '0';
 				wrreq_FIFO_Entry_2		<= '0';
 				
@@ -147,28 +148,28 @@ begin
 					SM_Entry <= WaitLine1;
 				end if;
 			
-			when WaitLine1 =>
+			when WaitLine1 =>										-- Waits for the beginning of the first line
 				if LVAL = '1' then
 					wrreq_FIFO_Entry_1	<= '1';
 					wrreq_FIFO_Entry_2	<= '0';
 					SM_Entry <= ReadLine1;
 				end if;
 			
-			when ReadLine1 =>
+			when ReadLine1 =>										-- Reads the first line
 				if LVAL = '0' then
 					wrreq_FIFO_Entry_1	<= '0';
 					wrreq_FIFO_Entry_2	<= '0';
 					SM_Entry <= WaitLine2;
 				end if;
 				
-			when WaitLine2 =>
+			when WaitLine2 =>										-- Waits for the beginning of the second line
 				if LVAL = '1' then
 					wrreq_FIFO_Entry_1 <= '0';
 					wrreq_FIFO_Entry_2 <= '1';
 					SM_Entry <= ReadLine2;
 				end if;
 					
-			when ReadLine2 =>
+			when ReadLine2 =>										-- Reads the second line
 				if  LVAL = '0' then
 					wrreq_FIFO_Entry_1 <= '0';
 					wrreq_FIFO_Entry_2 <= '0';
@@ -176,7 +177,7 @@ begin
 				end if;		
 		end case;
 		
-		if iRegEnable = '0' then
+		if iRegEnable = '0' then								-- When acquisition is disabled, state goes to idle and FIFOs are cleared
 			SM_Entry	<= Idle;
 			Clear		<= '1';
 		end if;
@@ -184,10 +185,10 @@ begin
 	end process;
 	
 	
-	-- Transformation Pixels
+	-- Transformation Pixels from Camera to LCD format
 	process (Clk, nReset)
 	begin
-		if nReset = '0' then
+		if nReset = '0' then													-- Default values at Reset
 			rdreq_FIFO_Entry_1		<= '0';
 			rdreq_FIFO_Entry_2		<= '0';
 			wrreq_FIFO_Exit			<= '0';
@@ -202,7 +203,7 @@ begin
 		
 		elsif rising_edge(Clk) then
 			case SM is
-				when Idle =>
+				when Idle =>													-- Stays idle till the second FIFO is not empty
 					rdreq_FIFO_Entry_1		<= '0';
 					rdreq_FIFO_Entry_2		<= '0';
 					wrreq_FIFO_Exit			<= '0';
@@ -220,11 +221,11 @@ begin
 						SM 						<= WaitRead;
 					end if;
 					
-				when WaitRead =>
+				when WaitRead =>												-- Waits one clock cycle before reading the two first pixels of the pair of rows
 					wrreq_FIFO_Exit		<= '0';
-					SM					<= Read_G1_B;
+					SM							<= Read_G1_B;
 					
-				when Read_G1_B =>
+				when Read_G1_B =>												-- Reads the pixels G1 and B
 					wrreq_FIFO_Exit		<= '0';
 					G1							<= q_FIFO_Entry_1;				
 					B     					<= q_FIFO_Entry_2;
@@ -233,17 +234,17 @@ begin
 					rdreq_FIFO_Entry_1	<= '0';										
 					rdreq_FIFO_Entry_2	<= '0';
 					
-				when Read_R_G2 =>
+				when Read_R_G2 =>												-- Reads the pixles R and G2
 					R							<= q_FIFO_Entry_1;				
 					G2    					<= q_FIFO_Entry_2;
 					SM 						<= Ops;
 				
-				when Ops =>
+				when Ops =>														-- Averages G1 and G2 to create G
 					G 					<= std_logic_vector(shift_right(unsigned(G1) + unsigned(G2), 1));
 					CntPixels 		<= CntPixels + 1;
 					SM					<= WritePixels;
 						
-				When WritePixels =>
+				When WritePixels =>											-- Writes the previous pixel RGB into PixelsReady
 					if CntPixels = 1 then 
 						if iRegLight = '1' then
 							PixelsReady(15 downto 0)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
@@ -251,28 +252,28 @@ begin
 							PixelsReady(15 downto 0)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
 						end if;
 					
-					else 
+					else 															-- When CntPixels = 2, these two 16 pixels are written into FIFO Exit
 						if iRegLight = '1' then
 							PixelsReady(31 downto 16)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
 						else 
 							PixelsReady(31 downto 16)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
 						end if;
 						
-						wrreq_FIFO_Exit				<= '1';
+						wrreq_FIFO_Exit			<= '1';
 						CntPixels 					<= (others => '0');
 					end if;
 					
-					if Empty_FIFO_2 = '1' then
+					if Empty_FIFO_2 = '1' then								-- If FIFO Entry 2 is empty we go back to idle state
 						SM 	<= Idle;
 					
-					else 
+					else															-- If not we go to WaitRead to read the next pixel in the row
 						rdreq_FIFO_Entry_1	<= '1';										
 						rdreq_FIFO_Entry_2	<= '1';
-						SM					<= WaitRead;
+						SM							<= WaitRead;
 					end if;
 			end case;
 			
-			if iRegEnable = '0' then
+			if iRegEnable = '0' then										-- When acquisition is disabled, state goes to idle
 				SM <= Idle;
 			end if;
 			
@@ -284,41 +285,41 @@ begin
 	-- Send Pixel to DMA
 	process (Clk, nReset)
 	begin
-		if nReset = '0' then
+		if nReset = '0' then											-- Default values at Reset
 			NewData						<= '0';
 			CntBurst						<= (others => '0');
 			rdreq_FIFO_Exit			<= '0';
-			SM_Exit				<= Idle;
+			SM_Exit						<= Idle;
 			
 		elsif rising_edge(Clk) then
 			case SM_Exit is
-				when Idle =>
+				when Idle =>											-- Stays idle till FIFO Exit has at least iRegurst 32 bit words ready in its buffer
 					rdreq_FIFO_Exit			<= '0';
 					NewData						<= '0';
 					CntBurst						<= iRegBurst;
 					
-					if unsigned(usedw_FIFO_Exit) >= iRegBurst and iRegEnable = '1' then
-						SM_Exit				<= SendData;
+					if unsigned(usedw_FIFO_Exit) >= iRegBurst then
+						SM_Exit					<= SendData;
 						rdreq_FIFO_Exit		<= '1';
 					end if;
 					
-				when SendData =>
+				when SendData =>										-- Sends iRegBurst data to DMA and finishes by putting NewData to '0'
 					NewData 	<= '1';
 					
 					if AM_WaitRequest = '0' and CntBurst /= 1 then
-						CntBurst <= CntBurst - 1;
+						CntBurst 			<= CntBurst - 1;
 						rdreq_FIFO_Exit	<= '1';
 						
 					else
 						rdreq_FIFO_Exit	<= '0';
 						if DataAck 	= '1' then
-							NewData	<= '0';
+							NewData		<= '0';
 							SM_Exit		<= Idle;
 						end if;
 					end if;
 			end case;
 			
-			if iRegEnable = '0' then
+			if iRegEnable = '0' then								-- When acquisition is disabled, state goes to idle
 				SM_Exit <= Idle;
 			end if;
 		end if;
