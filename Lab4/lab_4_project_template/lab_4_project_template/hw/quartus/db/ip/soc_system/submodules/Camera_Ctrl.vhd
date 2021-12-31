@@ -158,6 +158,7 @@ begin
 			iRegLength		<= (others => '0');
 			iRegEnable		<= '0';
 			iRegBurst		<= (others => '0');
+			iRegLight		<= '0';
 			
 		elsif rising_edge(Clk) then
 			if EndBuffer = '1' then					-- disable the Camera interface when it finishes writting a full frame in memory
@@ -184,11 +185,11 @@ begin
 			AS_DataRead <= (others => '0');
 			if AS_Read = '1' then
 				case AS_Adr is
-					when "000"  => AS_DataRead		<=  std_logic_vector(iRegAdr);   			-- reads the start address of the frame in memory
-					when "001"  => AS_DataRead		<=  std_logic_vector(iRegLength);			-- reads the length of one frame in memory in number of 32 bit words
-					when "010"  => AS_DataRead(0)	<=  iRegEnable;									-- reads the state of the camera interface
-					when "011"  => AS_DataRead		<=  std_logic_vector(iRegBurst);				-- reads the lentgth of the busrt to transfer
-					when "100"	=> AS_DataRead(0)	<=	iRegLight;										-- reads the lighting conditions of the camera
+					when "000"  => AS_DataRead		<= std_logic_vector(iRegAdr);   			-- reads the start address of the frame in memory
+					when "001"  => AS_DataRead		<= std_logic_vector(iRegLength);			-- reads the length of one frame in memory in number of 32 bit words
+					when "010"  => AS_DataRead(0)	<= iRegEnable;									-- reads the state of the camera interface
+					when "011"  => AS_DataRead		<= std_logic_vector(iRegBurst);			-- reads the lentgth of the busrt to transfer
+					when "100"	=> AS_DataRead(0)	<= iRegLight;									-- reads the lighting conditions of the camera
 					when others => null;
 				end case;
 			end if;

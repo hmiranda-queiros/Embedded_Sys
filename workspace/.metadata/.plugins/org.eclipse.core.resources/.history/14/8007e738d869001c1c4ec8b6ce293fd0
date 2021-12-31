@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <system.h>
+#include <io.h>
+#include <inttypes.h>
+
+#include "cmos_sensor_output_generator.h"
+#include "memory_access.h"
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+#include "cmos_sensor_output_generator/cmos_sensor_output_generator.h"
+#include "cmos_sensor_output_generator/cmos_sensor_output_generator_regs.h"
+
+#define IREGADR 0
+#define IREGLENGTH 1
+#define IREGENABLE 2
+#define IREGBURST 3
+#define IREGLIGHT 4
+#define CAMERA_CTRL_BASE (0x10000840)
+
+int main(void) {
+	cmos_sensor_output_generator_dev cmos_sensor_output_generator = cmos_sensor_output_generator_inst(CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE,
+	                                                                                                      CMOS_SENSOR_OUTPUT_GENERATOR_0_PIX_DEPTH,
+	                                                                                                      CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH,
+	                                                                                                      CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_HEIGHT);
+	    cmos_sensor_output_generator_init(&cmos_sensor_output_generator);
+
+	    cmos_sensor_output_generator_stop(&cmos_sensor_output_generator);
+
+	    cmos_sensor_output_generator_configure(&cmos_sensor_output_generator,
+	                                           4,
+	                                           4,
+	                                           CMOS_SENSOR_OUTPUT_GENERATOR_CONFIG_FRAME_FRAME_BLANK_MIN,
+	                                           CMOS_SENSOR_OUTPUT_GENERATOR_CONFIG_FRAME_LINE_BLANK_MIN,
+	                                           CMOS_SENSOR_OUTPUT_GENERATOR_CONFIG_LINE_LINE_BLANK_MIN,
+	                                           CMOS_SENSOR_OUTPUT_GENERATOR_CONFIG_LINE_FRAME_BLANK_MIN);
+
+	    cmos_sensor_output_generator_start(&cmos_sensor_output_generator);
+
+	    volatile unsigned int j = IORD_32DIRECT(CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE, 0 * 4);
+
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, 0);								// sets all the pins in mode Output
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGBURST * 4, 1);
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLENGTH * 4, 2);										// sets the polarity to 1
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 0);		// sets the duty cycle of the PWM
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);					// sets the period of the PWM
+
+	volatile unsigned int read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
+	volatile unsigned int k = 0;
+
+	while(read_enable == 1){
+		read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
+		j = IORD_32DIRECT(CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE, 0 * 4);
+		for(k=0;k<4000000;k++);
+	}
+
+	//read_memory();
+
+    return EXIT_SUCCESS;
+}

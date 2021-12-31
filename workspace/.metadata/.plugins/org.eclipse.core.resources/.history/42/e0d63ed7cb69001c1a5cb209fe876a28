@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <system.h>
+#include <io.h>
+#include <inttypes.h>
+
+#include "cmos_sensor_output_generator.h"
+#include "memory_access.h"
+
+#define IREGADR 0
+#define IREGLENGTH 1
+#define IREGPENABLE 2
+#define IREGBURST 3
+#define IREGLIGHT 4
+
+int main(void) {
+	start_cmos();
+
+
+
+	read_memory();
+
+    return EXIT_SUCCESS;
+}

@@ -1,0 +1,13 @@
+/*
+ * cmos_sensor_output_generator.h
+ *
+ *  Created on: 31 déc. 2021
+ *      Author: hugom
+ */
+
+#ifndef CMOS_SENSOR_OUTPUT_GENERATOR_H_
+#define CMOS_SENSOR_OUTPUT_GENERATOR_H_
+
+
+
+#endif /* CMOS_SENSOR_OUTPUT_GENERATOR_H_ */

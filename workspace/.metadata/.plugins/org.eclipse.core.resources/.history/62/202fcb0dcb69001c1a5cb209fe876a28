@@ -1,0 +1,16 @@
+#include <assert.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <stdbool.h>
+#include <stdint.h>
+
+#include "cmos_sensor_output_generator.h"
+#include "memory_access.h"
+
+int main(void) {
+
+
+    return EXIT_SUCCESS;
+}

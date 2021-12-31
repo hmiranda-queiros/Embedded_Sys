@@ -142,10 +142,10 @@ ACDS_VERSION := 18.1
 ELF := camera_project.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += demo_cmos_sensor_output_generator.c
 C_SRCS += cmos_sensor_output_generator/cmos_sensor_output_generator.c
 C_SRCS += main_with_cmos_generator.c
-C_SRCS += demo_256_MB_memory_access.c
+C_SRCS += cmos_sensor_output_generator.c
+C_SRCS += memory_access.c
 CXX_SRCS :=
 ASM_SRCS :=
 
