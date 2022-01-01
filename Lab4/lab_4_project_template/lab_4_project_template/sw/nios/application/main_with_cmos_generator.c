@@ -25,13 +25,27 @@ int main(void) {
 
 	volatile unsigned int read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
 	volatile unsigned int k = 0;
+	volatile unsigned int fval = IORD_32DIRECT(CAMERA_CTRL_BASE, 4 * 4);		//FVAL
+	volatile unsigned int lval = IORD_32DIRECT(CAMERA_CTRL_BASE, 5 * 4);		//LVAL
+	volatile unsigned int dma = IORD_32DIRECT(CAMERA_CTRL_BASE, 6 * 4);		//DMA
+	volatile unsigned int row = IORD_32DIRECT(CAMERA_CTRL_BASE, 0 * 4);		//row
+	volatile unsigned int inter = IORD_32DIRECT(CAMERA_CTRL_BASE, 7 * 4);		//Inter
+	volatile unsigned int send = IORD_32DIRECT(CAMERA_CTRL_BASE, 1 * 4);		//send
 
 	while(read_enable == 1){
 		read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
-		for(k=0;k<4000000;k++);
+		fval = IORD_32DIRECT(CAMERA_CTRL_BASE, 4 * 4);		//FVAL
+		lval = IORD_32DIRECT(CAMERA_CTRL_BASE, 5 * 4);		//LVAL
+		dma = IORD_32DIRECT(CAMERA_CTRL_BASE, 6 * 4);		//DMA
+		row = IORD_32DIRECT(CAMERA_CTRL_BASE, 0 * 4);		//row
+		inter = IORD_32DIRECT(CAMERA_CTRL_BASE, 7 * 4);		//Inter
+		send = IORD_32DIRECT(CAMERA_CTRL_BASE, 1 * 4);		//send
+		if (fval == 0){
+			k++;
+		}
 	}
 
-	//read_memory();
+	read_memory();
 
-    return EXIT_SUCCESS;
+    return 0;
 }

@@ -249,23 +249,23 @@ begin
             when STATE_VALID =>
                 frame_valid <= '1';
                 line_valid  <= '1';
-                data        <= std_logic_vector(resize((reg_frame_height_counter - 1) * reg_frame_width_config + (reg_frame_width_counter - 1), data'length));
+                -- data        <= std_logic_vector(resize((reg_frame_height_counter - 1) * reg_frame_width_config + (reg_frame_width_counter - 1), data'length));
 
-                -- if reg_frame_height_counter(0) = '0' and reg_frame_width_counter(0) = '0' then -- upper right
-                --     data <= std_logic_vector(to_unsigned(1, data'length));
-                -- end if;
-                --
-                -- if reg_frame_height_counter(0) = '0' and reg_frame_width_counter(0) = '1' then -- upper left
-                --     data <= std_logic_vector(to_unsigned(2, data'length));
-                -- end if;
-                --
-                -- if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '0' then -- lower right
-                --     data <= std_logic_vector(to_unsigned(2, data'length));
-                -- end if;
-                --
-                -- if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '1' then -- lower left
-                --     data <= std_logic_vector(to_unsigned(3, data'length));
-                -- end if;
+                if reg_frame_height_counter(0) = '0' and reg_frame_width_counter(0) = '0' then -- G2
+                    data <= (others => '0');
+                end if;
+                
+                if reg_frame_height_counter(0) = '0' and reg_frame_width_counter(0) = '1' then -- B
+                    data <= (others => '0');
+                end if;
+                
+                if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '0' then -- R
+                    data <= (others => '1');
+                end if;
+                
+                if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '1' then -- G1
+                    data <= (others => '0');
+                end if;
 
                 next_reg_frame_width_counter <= reg_frame_width_counter + 1;
 

@@ -51,6 +51,14 @@ SM.Ops 0 0 1 0 0 1
 SM.WritePixels 0 1 0 0 0 1 
 SM.WaitRead 1 0 0 0 0 1 
 
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Interface:u1|SM_Entry
+Name SM_Entry.ReadLine2 SM_Entry.ReadLine1 SM_Entry.WaitLine2 SM_Entry.WaitLine1 SM_Entry.Idle 
+SM_Entry.Idle 0 0 0 0 0 
+SM_Entry.WaitLine1 0 0 0 1 1 
+SM_Entry.WaitLine2 0 0 1 0 1 
+SM_Entry.ReadLine1 0 1 0 0 1 
+SM_Entry.ReadLine2 1 0 0 0 1 
+
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Master:u0|SM
 Name SM.WaitCPU SM.AcqData SM.WriteData SM.WaitData SM.Idle 
 SM.Idle 0 0 0 0 0 

@@ -1,6 +1,6 @@
-19:14:37 **** Clean-only build of configuration Nios II for project camera_project_bsp ****
-make clean 
-[BSP clean complete]
+15:40:51 **** Build of configuration Nios II for project camera_project_bsp ****
+make all 
+[BSP build complete]
 
-19:14:37 Build Finished (took 743ms)
+15:40:52 Build Finished (took 923ms)
 

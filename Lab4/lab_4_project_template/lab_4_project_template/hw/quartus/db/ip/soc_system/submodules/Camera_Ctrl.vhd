@@ -49,6 +49,11 @@ architecture main of Camera_Ctrl is
 	signal DataAck			: std_logic;								
 	signal NewPixels		: std_logic_vector(31 downto 0);
 	signal EndBuffer		: std_logic;
+	
+	signal state_dma	:	unsigned(2 downto 0);	
+	signal state_inter	:	unsigned(2 downto 0);
+	signal state_row		: unsigned(2 downto 0);
+	signal state_send		: unsigned(2 downto 0);
 
 	
 	component Camera_Master is 
@@ -71,7 +76,9 @@ architecture main of Camera_Ctrl is
 			iRegAdr 			: in unsigned(31 downto 0);
 			iRegLength 		: in unsigned(31 downto 0);
 			iRegEnable		: inout std_logic;
-			iRegBurst		: in unsigned(31 downto 0)
+			iRegBurst		: in unsigned(31 downto 0);
+			
+			state_dma		: out unsigned(2 downto 0)
 			
 		);
 	end component Camera_Master;
@@ -96,7 +103,11 @@ architecture main of Camera_Ctrl is
 			iRegEnable		: in std_logic;
 			iRegBurst		: in unsigned(31 downto 0);
 			iRegLight		: in std_logic;
-			AM_WaitRequest	: in std_logic
+			AM_WaitRequest	: in std_logic;
+			
+			state_inter		: out unsigned(2 downto 0);
+			state_row		: out unsigned(2 downto 0);
+			state_send		: out unsigned(2 downto 0)
 			
 		);
 	end component Camera_Interface;
@@ -123,7 +134,9 @@ begin
 				iRegAdr 			=> iRegAdr,
 				iRegLength 		=> iRegLength,
 				iRegEnable		=> iRegEnable,
-				iRegBurst		=> iRegBurst
+				iRegBurst		=> iRegBurst,
+				
+				state_dma		=> state_dma
 
 			);
 		
@@ -146,7 +159,11 @@ begin
 			iRegEnable		=> iRegEnable,
 			iRegBurst		=> iRegBurst,
 			iRegLight		=> iRegLight,
-			AM_WaitRequest => AM_WaitRequest
+			AM_WaitRequest => AM_WaitRequest,
+			
+			state_inter		=> state_inter,
+			state_row		=> state_row,
+			state_send		=> state_send
 
 		);
 			
@@ -185,11 +202,14 @@ begin
 			AS_DataRead <= (others => '0');
 			if AS_Read = '1' then
 				case AS_Adr is
-					when "000"  => AS_DataRead		<= std_logic_vector(iRegAdr);   			-- reads the start address of the frame in memory
-					when "001"  => AS_DataRead		<= std_logic_vector(iRegLength);			-- reads the length of one frame in memory in number of 32 bit words
+					when "000"  => AS_DataRead(2 downto 0)		<= std_logic_vector(state_row);   			-- reads the start address of the frame in memory
+					when "001"  => AS_DataRead(2 downto 0)		<= std_logic_vector(state_send);			-- reads the length of one frame in memory in number of 32 bit words
 					when "010"  => AS_DataRead(0)	<= iRegEnable;									-- reads the state of the camera interface
 					when "011"  => AS_DataRead		<= std_logic_vector(iRegBurst);			-- reads the lentgth of the busrt to transfer
-					when "100"	=> AS_DataRead(0)	<= iRegLight;									-- reads the lighting conditions of the camera
+					when "100"	=> AS_DataRead(0)	<= FVAL;									-- reads the lighting conditions of the camera
+					when "101"	=> AS_DataRead(0)	<= LVAL;
+					when "110"	=> AS_DataRead(2 downto 0)		<= std_logic_vector(state_dma);
+					when "111"	=> AS_DataRead(2 downto 0)		<= std_logic_vector(state_inter);
 					when others => null;
 				end case;
 			end if;
