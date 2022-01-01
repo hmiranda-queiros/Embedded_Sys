@@ -1,0 +1,38 @@
+#include <assert.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include "io.h"
+#include "system.h"
+
+#include "memory_access.h"
+
+void read_memory(void) {
+    uint32_t megabyte_count = 0;
+
+    char* filename = "/mnt/host/image.ppm";
+
+    FILE *foutput = fopen(filename, "w");
+    if (!foutput) {
+     printf("Error: could not open \"%s\" for writing\n", filename);
+    }
+
+    printf("Begin writing file \n\n");
+
+    for (int j = 0; j < 240; j += 1) {
+    	for (uint32_t i = 0; i < 640 * 4; i += sizeof(uint32_t)) {
+        uint32_t addr = HPS_0_BRIDGES_BASE + sizeof(uint5_t);
+
+        // Read through address span expander
+        uint32_t readdata = IORD_32DIRECT(addr, 0);
+
+        /* Use fprintf function to write to file through file pointer */
+        fprintf(foutput,"%" PRIu32 "\n", readdata);
+
+    }
+
+    printf("End writing file");
+    fclose(foutput);
+}
