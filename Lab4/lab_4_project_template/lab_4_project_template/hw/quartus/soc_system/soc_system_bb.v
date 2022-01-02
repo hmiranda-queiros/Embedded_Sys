@@ -7,9 +7,6 @@ module soc_system (
 	camera_ctrl_0_camera_pixel_clock_in,
 	camera_ctrl_0_camera_nreset_out,
 	clk_clk,
-	cmos_sensor_output_generator_0_cmos_sensor_frame_valid,
-	cmos_sensor_output_generator_0_cmos_sensor_line_valid,
-	cmos_sensor_output_generator_0_cmos_sensor_data,
 	hps_0_ddr_mem_a,
 	hps_0_ddr_mem_ba,
 	hps_0_ddr_mem_ck,
@@ -86,9 +83,6 @@ module soc_system (
 	input		camera_ctrl_0_camera_pixel_clock_in;
 	output		camera_ctrl_0_camera_nreset_out;
 	input		clk_clk;
-	output		cmos_sensor_output_generator_0_cmos_sensor_frame_valid;
-	output		cmos_sensor_output_generator_0_cmos_sensor_line_valid;
-	output	[11:0]	cmos_sensor_output_generator_0_cmos_sensor_data;
 	output	[14:0]	hps_0_ddr_mem_a;
 	output	[2:0]	hps_0_ddr_mem_ba;
 	output		hps_0_ddr_mem_ck;

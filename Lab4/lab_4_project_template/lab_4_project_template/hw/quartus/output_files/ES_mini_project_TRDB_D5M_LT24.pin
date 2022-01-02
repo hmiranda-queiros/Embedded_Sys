@@ -151,7 +151,7 @@ altera_reserved_tms          : AC7       : input  : 2.5 V             :         
 VCC_AUX                      : AC8       : power  :                   : 2.5V    :           :                
 VCC_AUX                      : AC21      : power  :                   : 2.5V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC22      :        :                   :         : 4A        :                
-GPIO_1_D5M_D[1]              : AC23      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[1]              : AC23      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC24      :        :                   :         : 5A        :                
 VCCIO5A                      : AC25      : power  :                   : 3.3V    : 5A        :                
 VREFB5AN0                    : AC26      : power  :                   :         : 5A        :                
@@ -175,7 +175,7 @@ VCC_AUX                      : AD15      : power  :                   : 2.5V    
 VCCPD3B4A                    : AD16      : power  :                   : 3.3V    : 3B, 4A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD17      :        :                   :         : 4A        :                
 VCCPD3B4A                    : AD18      : power  :                   : 3.3V    : 3B, 4A    :                
-GPIO_1_D5M_FVAL              : AD19      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_FVAL              : AD19      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD20      :        :                   :         : 4A        :                
 VCCPD3B4A                    : AD21      : power  :                   : 3.3V    : 3B, 4A    :                
 GND                          : AD22      : gnd    :                   :         :           :                
@@ -206,7 +206,7 @@ GND                          : AE18      : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE19      :        :                   :         : 4A        :                
 GPIO_1_D5M_SDATA             : AE20      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AE21      : power  :                   : 3.3V    : 4A        :                
-GPIO_1_D5M_D[6]              : AE22      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[6]              : AE22      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :         : 4A        :                
 GPIO_1_D5M_SCLK              : AE24      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE25      :        :                   :         : 5A        :                
@@ -230,12 +230,12 @@ VCCIO4A                      : AF14      : power  :                   : 3.3V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF15      :        :                   :         : 4A        :                
 VREFB4AN0                    : AF16      : power  :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF17      :        :                   :         : 4A        :                
-GPIO_1_D5M_LVAL              : AF18      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_LVAL              : AF18      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AF19      : power  :                   : 3.3V    : 4A        :                
-GPIO_1_D5M_D[2]              : AF20      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
-GPIO_1_D5M_D[5]              : AF21      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[2]              : AF20      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[5]              : AF21      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF22      :        :                   :         : 4A        :                
-GPIO_1_D5M_D[7]              : AF23      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[7]              : AF23      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AF24      : gnd    :                   :         :           :                
 GPIO_1_D5M_RESET_N           : AF25      : output : 3.3-V LVTTL       :         : 4A        : Y              
 LED[4]                       : AF26      : output : 3.3-V LVTTL       :         : 5A        : Y              
@@ -258,17 +258,17 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AG14      :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG15      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG16      :        :                   :         : 4A        :                
 GND                          : AG17      : gnd    :                   :         :           :                
-GPIO_1_D5M_D[0]              : AG18      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
-GPIO_1_D5M_D[3]              : AG19      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
-GPIO_1_D5M_D[4]              : AG20      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[0]              : AG18      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[3]              : AG19      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[4]              : AG20      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG21      :        :                   :         : 4A        :                
 VCCIO4A                      : AG22      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG23      :        :                   :         : 4A        :                
 GPIO_1_D5M_XCLKIN            : AG24      : output : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG25      :        :                   :         : 4A        :                
-GPIO_1_D5M_D[9]              : AG26      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[9]              : AG26      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AG27      : gnd    :                   :         :           :                
-GPIO_1_D5M_D[11]             : AG28      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[11]             : AG28      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH2       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH3       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH4       :        :                   :         : 3B        :                
@@ -291,10 +291,10 @@ GND                          : AH20      : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH21      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH23      :        :                   :         : 4A        :                
-GPIO_1_D5M_D[8]              : AH24      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[8]              : AH24      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AH25      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH26      :        :                   :         : 4A        :                
-GPIO_1_D5M_D[10]             : AH27      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
+GPIO_1_D5M_D[10]             : AH27      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : B1        :        :                   :         :           :                
 DNU                          : B2        :        :                   :         :           :                
 GND                          : B3        : gnd    :                   :         :           :                

@@ -20,6 +20,6 @@
 #define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH  (640)    /* cmos_sensor_output_generator max width from system.h (ADAPT TO YOUR DESIGN) */
 #define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_HEIGHT (480)    /* cmos_sensor_output_generator max height from system.h (ADAPT TO YOUR DESIGN) */
 
-void start_cmos(void);
+int start_cmos(void);
 
 #endif /* CMOS_SENSOR_OUTPUT_GENERATOR_H_ */

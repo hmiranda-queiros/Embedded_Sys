@@ -47,7 +47,7 @@ architecture comp of Camera_Interface is
 	signal rdreq_FIFO_Entry_2	: std_logic;										
 	signal rdreq_FIFO_Exit		: std_logic;										
 											
-	signal usedw_FIFO_Exit		: std_logic_vector(10 downto 0);
+	signal usedw_FIFO_Exit		: std_logic_vector(11 downto 0);
 	signal empty_FIFO_1			: std_logic;
 	signal empty_FIFO_2			: std_logic;
 	
@@ -90,7 +90,7 @@ architecture comp of Camera_Interface is
 			rdreq	 			: in std_logic;
 			wrreq	 			: in std_logic;
 			q	 				: out std_logic_vector(31 downto 0);
-			usedw				: out std_logic_vector(10 downto 0)
+			usedw				: out std_logic_vector(11 downto 0)
 		);
 	end component FIFO_Exit;
 

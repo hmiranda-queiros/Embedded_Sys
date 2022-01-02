@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>1 janv. 2022 23:23:40</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1641075820616</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2 janv. 2022 15:12:52</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1641132772601</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\Lab4\lab_4_project_template\lab_4_project_template\sw\nios\camera_project_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\Lab4\lab_4_project_template\lab_4_project_template\hw\quartus\soc_system.sopcinfo</SopcDesignFile>
@@ -932,12 +932,6 @@
                 <slaveDescriptor>pio_leds</slaveDescriptor>
                 <addressRange>0x10000810 - 0x1000081F</addressRange>
                 <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>cmos_sensor_output_generator_0</slaveDescriptor>
-                <addressRange>0x10000820 - 0x1000083F</addressRange>
-                <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>

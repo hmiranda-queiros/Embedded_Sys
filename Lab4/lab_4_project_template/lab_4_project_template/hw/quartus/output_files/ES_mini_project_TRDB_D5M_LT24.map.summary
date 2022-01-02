@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Jan 01 23:19:07 2022
+Analysis & Synthesis Status : Successful - Sun Jan 02 14:54:27 2022
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ES_mini_project_TRDB_D5M_LT24
 Top-level Entity Name : DE0_Nano_SoC_TRDB_D5M_LT24_top_level
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 3599
+Total registers : 3432
 Total pins : 148
 Total virtual pins : 0
-Total block memory bits : 1,966,208
+Total block memory bits : 2,031,744
 Total DSP Blocks : 3
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

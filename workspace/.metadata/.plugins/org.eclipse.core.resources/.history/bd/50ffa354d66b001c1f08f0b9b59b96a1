@@ -1,0 +1,19 @@
+/*
+ * i2c.h
+ *
+ *  Created on: 2 janv. 2022
+ *      Author: hugom
+ */
+
+#ifndef I2C_H_
+#define I2C_H_
+
+#define I2C_FREQ              (50000000) /* Clock frequency driving the i2c core: 50 MHz in this example (ADAPT TO YOUR DESIGN) */
+#define TRDB_D5M_I2C_ADDRESS  (0xba)
+
+#define TRDB_D5M_0_I2C_0_BASE (0x10000808)   /* i2c base address from system.h (ADAPT TO YOUR DESIGN) */
+
+
+int configure_camera(void);
+
+#endif /* I2C_H_ */

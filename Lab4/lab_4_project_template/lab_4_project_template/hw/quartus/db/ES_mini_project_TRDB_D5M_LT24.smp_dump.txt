@@ -33,15 +33,6 @@ p_state.s_WrAck_B 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 p_state.s_WrAck_C 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 p_state.s_WrAck_D 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
-State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|cmos_sensor_output_generator:cmos_sensor_output_generator_0|reg_state
-Name reg_state.STATE_LINE_FRAME_BLANK reg_state.STATE_LINE_LINE_BLANK reg_state.STATE_VALID reg_state.STATE_FRAME_LINE_BLANK reg_state.STATE_FRAME_FRAME_BLANK reg_state.STATE_IDLE 
-reg_state.STATE_IDLE 0 0 0 0 0 0 
-reg_state.STATE_FRAME_FRAME_BLANK 0 0 0 0 1 1 
-reg_state.STATE_FRAME_LINE_BLANK 0 0 0 1 0 1 
-reg_state.STATE_VALID 0 0 1 0 0 1 
-reg_state.STATE_LINE_LINE_BLANK 0 1 0 0 0 1 
-reg_state.STATE_LINE_FRAME_BLANK 1 0 0 0 0 1 
-
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Interface:u1|SM
 Name SM.WaitRead SM.WritePixels SM.Ops SM.Read_R_G2 SM.Read_G1_B SM.Idle 
 SM.Idle 0 0 0 0 0 0 

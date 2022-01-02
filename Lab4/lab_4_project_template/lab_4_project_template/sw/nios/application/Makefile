@@ -146,6 +146,9 @@ C_SRCS += cmos_sensor_output_generator/cmos_sensor_output_generator.c
 C_SRCS += main_with_cmos_generator.c
 C_SRCS += cmos_sensor_output_generator.c
 C_SRCS += memory_access.c
+C_SRCS += main_with_real_camera.c
+C_SRCS += i2c/i2c.c
+C_SRCS += i2c_m.c
 CXX_SRCS :=
 ASM_SRCS :=
 

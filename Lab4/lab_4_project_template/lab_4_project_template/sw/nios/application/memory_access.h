@@ -17,9 +17,11 @@
 #include "io.h"
 #include "system.h"
 
-#define HPS_0_BRIDGES_BASE (0x00000000)				/* address_span_expander base address from system.h (ADAPT TO YOUR DESIGN) */
+#define HPS_0_BRIDGES_BASE_1 (0x00000000)				/* address_span_expander base address from system.h (ADAPT TO YOUR DESIGN) */
+#define HPS_0_BRIDGES_BASE_2 (0x1E8480)				/* address_span_expander base address from system.h (ADAPT TO YOUR DESIGN) */
 
-void read_memory(void);
+
+int read_memory(uint32_t base_address_memory, char* filename);
 
 
 #endif /* MEMORY_ACCESS_H_ */

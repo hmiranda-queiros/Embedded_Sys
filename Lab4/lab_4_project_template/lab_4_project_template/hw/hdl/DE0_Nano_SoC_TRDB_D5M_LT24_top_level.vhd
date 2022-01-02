@@ -58,17 +58,29 @@ entity DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
 --        GPIO_0_LT24_RS           : out std_logic;
 --        GPIO_0_LT24_WR_N         : out std_logic;
 
-        -- GPIO_1
+        -- GPIO_1 with cmos
         GPIO_1_D5M_D       : inout    std_logic_vector(11 downto 0);
         GPIO_1_D5M_FVAL    : inout    std_logic;
-        GPIO_1_D5M_LVAL    : inout    std_logic;
-        GPIO_1_D5M_PIXCLK  : in    std_logic;
+        GPIO_1_D5M_LVAL    : inout   std_logic;
+        GPIO_1_D5M_PIXCLK  : inout    std_logic;
         GPIO_1_D5M_RESET_N : out   std_logic;
         GPIO_1_D5M_SCLK    : inout std_logic;
         GPIO_1_D5M_SDATA   : inout std_logic;
         -- GPIO_1_D5M_STROBE  : in    std_logic;
         -- GPIO_1_D5M_TRIGGER : out   std_logic;
         GPIO_1_D5M_XCLKIN  : out   std_logic;
+		
+		-- -- GPIO_1 with camera
+        -- GPIO_1_D5M_D       : in    std_logic_vector(11 downto 0);
+        -- GPIO_1_D5M_FVAL    : in    std_logic;
+        -- GPIO_1_D5M_LVAL    : in   std_logic;
+        -- GPIO_1_D5M_PIXCLK  : in    std_logic;
+        -- GPIO_1_D5M_RESET_N : out   std_logic;
+        -- GPIO_1_D5M_SCLK    : inout std_logic;
+        -- GPIO_1_D5M_SDATA   : inout std_logic;
+        -- -- GPIO_1_D5M_STROBE  : in    std_logic;
+        -- -- GPIO_1_D5M_TRIGGER : out   std_logic;
+        -- GPIO_1_D5M_XCLKIN  : out   std_logic;
 
         -- HPS
         HPS_CONV_USB_N   : inout std_logic;
@@ -285,6 +297,7 @@ begin
 			camera_ctrl_0_camera_frame_valid                       => GPIO_1_D5M_FVAL,                -- frame_valid
 			camera_ctrl_0_camera_pixel_clock_in                    => GPIO_1_D5M_PIXCLK ,             -- pixel_clock_in
 			camera_ctrl_0_camera_nreset_out                        => GPIO_1_D5M_RESET_N,             -- nreset_out
+			GPIO_1_D5M_PIXCLK										=> FPGA_CLK1_50,				-- Pixel clock in
 			cmos_sensor_output_generator_0_cmos_sensor_frame_valid => GPIO_1_D5M_FVAL,						-- cmos_sensor_output_generator_0_cmos_sensor.frame_valid
 			cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					-- line_valid
 			cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				-- data

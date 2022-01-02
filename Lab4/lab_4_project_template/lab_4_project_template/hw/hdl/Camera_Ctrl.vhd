@@ -186,7 +186,7 @@ begin
 					when "000"  => iRegAdr			<= unsigned(AS_DataWrite);   		-- sets the start address of the frame in memory
 					when "001"  => iRegLength		<= unsigned(AS_DataWrite);			-- sets the length of one frame in memory in number of 32 bit words
 					when "010"  => iRegEnable		<= AS_DataWrite(0);					-- sets the state of the camera interface
-					when "011"  => iRegBurst		<= unsigned(AS_DataWrite);			-- sets the lentgth of the busrt to transfer
+					when "011"  => iRegBurst		<= unsigned(AS_DataWrite);			-- sets the length of the burst to transfer in words of 32 bits
 					when "100"	=> iRegLight		<= AS_DataWrite(0);					-- sets the lighting conditions of the camera
 					when others => null;
 				end case;
@@ -205,7 +205,7 @@ begin
 					when "000"  => AS_DataRead(2 downto 0)		<= std_logic_vector(state_row);   			-- reads the start address of the frame in memory
 					when "001"  => AS_DataRead(2 downto 0)		<= std_logic_vector(state_send);			-- reads the length of one frame in memory in number of 32 bit words
 					when "010"  => AS_DataRead(0)	<= iRegEnable;									-- reads the state of the camera interface
-					when "011"  => AS_DataRead		<= std_logic_vector(iRegBurst);			-- reads the lentgth of the busrt to transfer
+					when "011"  => AS_DataRead		<= std_logic_vector(iRegBurst);			-- reads the length of the busrt to transfer in words of 32 bits
 					when "100"	=> AS_DataRead(0)	<= FVAL;									-- reads the lighting conditions of the camera
 					when "101"	=> AS_DataRead(0)	<= LVAL;
 					when "110"	=> AS_DataRead(2 downto 0)		<= std_logic_vector(state_dma);

@@ -1,30 +1,37 @@
-00:06:38 **** Incremental Build of configuration Nios II for project camera_project ****
+18:50:58 **** Incremental Build of configuration Nios II for project camera_project ****
 make all 
 Info: Building C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
 [BSP build complete]
-Info: Compiling memory_access.c to obj/default/memory_access.o
-nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//HAL/inc -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/ -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/memory_access.o memory_access.c
-In file included from memory_access.c:10:0:
-memory_access.h:20:0: warning: "HPS_0_BRIDGES_BASE" redefined
- #define HPS_0_BRIDGES_BASE (0x00000000)    /* address_span_expander base address from system.h (ADAPT TO YOUR DESIGN) */
- ^
-In file included from memory_access.c:8:0:
-C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/system.h:246:0: note: this is the location of the previous definition
- #define HPS_0_BRIDGES_BASE 0x0
- ^
-memory_access.c: In function 'read_memory':
-memory_access.c:13:14: warning: unused variable 'megabyte_count' [-Wunused-variable]
-     uint32_t megabyte_count = 0;
-              ^
+Info: Compiling main_with_real_camera.c to obj/default/main_with_real_camera.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//HAL/inc -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/ -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main_with_real_camera.o main_with_real_camera.c
+main_with_real_camera.c: In function 'main':
+main_with_real_camera.c:41:24: warning: variable 'send' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int send = IORD_32DIRECT(CAMERA_CTRL_BASE, 1 * 4);  //send
+                        ^
+main_with_real_camera.c:40:24: warning: variable 'inter' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int inter = IORD_32DIRECT(CAMERA_CTRL_BASE, 7 * 4);  //Inter
+                        ^
+main_with_real_camera.c:39:24: warning: variable 'row' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int row = IORD_32DIRECT(CAMERA_CTRL_BASE, 0 * 4);  //row
+                        ^
+main_with_real_camera.c:38:24: warning: variable 'dma' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int dma = IORD_32DIRECT(CAMERA_CTRL_BASE, 6 * 4);  //DMA
+                        ^
+main_with_real_camera.c:37:24: warning: variable 'lval' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int lval = IORD_32DIRECT(CAMERA_CTRL_BASE, 5 * 4);  //LVAL
+                        ^
+main_with_real_camera.c:36:24: warning: variable 'fval' set but not used [-Wunused-but-set-variable]
+  volatile unsigned int fval = IORD_32DIRECT(CAMERA_CTRL_BASE, 4 * 4);  //FVAL
+                        ^
 Info: Linking camera_project.elf
-nios2-elf-g++  -T'C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//linker.x' -msys-crt0='C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -LC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/   -Wl,-Map=camera_project.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o camera_project.elf obj/default/cmos_sensor_output_generator.o obj/default/cmos_sensor_output_generator/cmos_sensor_output_generator.o obj/default/main_with_cmos_generator.o obj/default/memory_access.o -lm -msys-lib=m
+nios2-elf-g++  -T'C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//linker.x' -msys-crt0='C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -LC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/   -Wl,-Map=camera_project.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o camera_project.elf obj/default/cmos_sensor_output_generator.o obj/default/cmos_sensor_output_generator/cmos_sensor_output_generator.o obj/default/i2c/i2c.o obj/default/i2c_m.o obj/default/main_with_cmos_generator.o obj/default/main_with_real_camera.o obj/default/memory_access.o -lm -msys-lib=m
 nios2-elf-insert camera_project.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name soc_system --quartus_project_dir "c:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus" --jdi C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus//output_files/ES_mini_project_TRDB_D5M_LT24.jdi --sopcinfo C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/soc_system.sopcinfo
-Info: (camera_project.elf) 75 KBytes program size (code + initialized data).
-Info:                      45 KBytes free for stack + heap.
+Info: (camera_project.elf) 80 KBytes program size (code + initialized data).
+Info:                      40 KBytes free for stack + heap.
 Info: Creating camera_project.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source camera_project.elf >camera_project.objdump
 [camera_project build complete]
 
-00:06:40 Build Finished (took 2s.538ms)
+18:51:00 Build Finished (took 2s.439ms)
 

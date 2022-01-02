@@ -9,23 +9,21 @@
 
 #include "memory_access.h"
 
-void read_memory(void) {
-    uint32_t megabyte_count = 0;
-
-    char* filename = "/mnt/host/image.ppm";
+int read_memory(uint32_t base_address_memory, char* filename) {
 
     FILE *foutput = fopen(filename, "w");
     if (!foutput) {
      printf("Error: could not open \"%s\" for writing\n", filename);
+     return false;
     }
 
-    printf("Begin writing file \n\n");
+    printf("Begin writing file \n");
 
-	fprintf(foutput,"P3\n320 240\n63\n");
+	fprintf(foutput,"P3\n320 240\n31 63 31\n");
 
     for (int j = 0; j < 240; j += 1) {
     	for (int i = 0; i < 320; i += 1) {
-    		uint32_t addr = HPS_0_BRIDGES_BASE + sizeof(uint16_t) * (i + j * 320);
+    		uint32_t addr = base_address_memory + sizeof(uint16_t) * (i + j * 320);
 
 			uint16_t readdata = IORD_16DIRECT(addr, 0);
 			uint16_t R = readdata & 31;
@@ -38,6 +36,8 @@ void read_memory(void) {
     	fprintf(foutput,"\n");
     }
 
-    printf("End writing file");
+    printf("End writing file \n\n");
     fclose(foutput);
+
+    return EXIT_SUCCESS;
 }

@@ -7,7 +7,7 @@
 
 #include "cmos_sensor_output_generator.h"
 
-void start_cmos(void) {
+int start_cmos(void) {
     cmos_sensor_output_generator_dev cmos_sensor_output_generator = cmos_sensor_output_generator_inst(CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE,
                                                                                                       CMOS_SENSOR_OUTPUT_GENERATOR_0_PIX_DEPTH,
                                                                                                       CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH,
@@ -25,4 +25,6 @@ void start_cmos(void) {
                                            CMOS_SENSOR_OUTPUT_GENERATOR_CONFIG_LINE_FRAME_BLANK_MIN);
 
     cmos_sensor_output_generator_start(&cmos_sensor_output_generator);
+
+    return EXIT_SUCCESS;
 }

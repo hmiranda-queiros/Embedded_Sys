@@ -47,7 +47,7 @@ architecture comp of Camera_Interface is
 	signal rdreq_FIFO_Entry_2	: std_logic;										
 	signal rdreq_FIFO_Exit		: std_logic;										
 											
-	signal usedw_FIFO_Exit		: std_logic_vector(10 downto 0);
+	signal usedw_FIFO_Exit		: std_logic_vector(11 downto 0);
 	signal empty_FIFO_1			: std_logic;
 	signal empty_FIFO_2			: std_logic;
 	
@@ -90,7 +90,7 @@ architecture comp of Camera_Interface is
 			rdreq	 			: in std_logic;
 			wrreq	 			: in std_logic;
 			q	 				: out std_logic_vector(31 downto 0);
-			usedw				: out std_logic_vector(10 downto 0)
+			usedw				: out std_logic_vector(11 downto 0)
 		);
 	end component FIFO_Exit;
 
@@ -134,7 +134,7 @@ begin
 	XCLKIN <= Clk;
 	
 	-- Acquisition rows from Camera
-	process (nReset, Clk)
+	process (nReset, PIXCLK)
 	begin
 		if nReset = '0' then										-- Default values at Reset
 			wrreq_FIFO_Entry_1		<= '0';
@@ -145,7 +145,7 @@ begin
 			data_FIFO_Entry_1 <= (others => '0');
 			data_FIFO_Entry_2 <= (others => '0');
 		
-		elsif rising_edge(Clk) then
+		elsif rising_edge(PIXCLK) then
 			case SM_Entry is
 				when Idle =>											-- Stays idle while a frame ends and camera interface is enabled
 					state_row <= "001";

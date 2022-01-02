@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'soc_system'
  * SOPC Builder design path: C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/soc_system.sopcinfo
  *
- * Generated: Tue Dec 28 19:21:46 CET 2021
+ * Generated: Sun Jan 02 15:02:26 CET 2022
  */
 
 /*
@@ -160,7 +160,6 @@
 #define __ALTERA_AVALON_PIO
 #define __ALTERA_NIOS2_GEN2
 #define __CAMERA_CTRL
-#define __CMOS_SENSOR_OUTPUT_GENERATOR
 #define __HPS_BRIDGE_AVALON
 #define __I2C
 
@@ -207,23 +206,6 @@
  */
 
 #define ALTERA_HOSTFS_NAME "/mnt/host"
-
-
-/*
- * cmos_sensor_output_generator_0 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_cmos_sensor_output_generator_0 cmos_sensor_output_generator
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_BASE 0x10000820
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_IRQ -1
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_HEIGHT 1080
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_MAX_WIDTH 1920
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_NAME "/dev/cmos_sensor_output_generator_0"
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_PIX_DEPTH 12
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_SPAN 32
-#define CMOS_SENSOR_OUTPUT_GENERATOR_0_TYPE "cmos_sensor_output_generator"
 
 
 /*
