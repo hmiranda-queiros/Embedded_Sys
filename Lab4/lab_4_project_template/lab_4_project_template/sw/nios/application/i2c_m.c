@@ -38,37 +38,41 @@ int configure_camera(void) {
     bool success = true;
     uint16_t writedata = 0;
 
-    //write writedata in registers
+    //Writes writedata in registers
     /*
-    success &= trdb_d5m_write(&i2c, 0x03, 1919);
-    success &= trdb_d5m_write(&i2c, 0x04, 2559);
-    success &= trdb_d5m_write(&i2c, 0x22, 51);
-    success &= trdb_d5m_write(&i2c, 0x23, 51);
-    success &= trdb_d5m_write(&i2c, 0x00A, 1 << 15);
-    success &= trdb_d5m_write(&i2c, 0x005, 906);
+    success &= trdb_d5m_write(&i2c, 0x03, 1919);	//row number
+    success &= trdb_d5m_write(&i2c, 0x04, 2559);	//column number
+    success &= trdb_d5m_write(&i2c, 0x22, 51);	//row 3 binning 3 skipping
+    success &= trdb_d5m_write(&i2c, 0x23, 51);	//column 3 binning 3 skipping
+    success &= trdb_d5m_write(&i2c, 0x00A, 1 << 15); //PIXCLK rise edge
+    success &= trdb_d5m_write(&i2c, 0x005, 906);	// Horizontal Blank
     */
 
-    // Make correct values available at rising edge of PIXCLK
+    //Makes correct values available at rising edge of PIXCLK
 	writedata = 1 << 15;
 	success &= trdb_d5m_write(&i2c, 0x00A, writedata);
-	// Set column-number
-	writedata = 639u;
-	success &= trdb_d5m_write(&i2c, 0x004, writedata);
-	// Set row-number
-	writedata = 479u;
+	//Sets row-number
+	writedata = 1919u;
 	success &= trdb_d5m_write(&i2c, 0x003, writedata);
-	// Disable binning and skipping
-	writedata = 0;
+	//Sets column-number
+	writedata = 2559u;
+	success &= trdb_d5m_write(&i2c, 0x004, writedata);
+	//Sets binning and skipping
+	writedata = 51;
 	success &= trdb_d5m_write(&i2c, 0x022, writedata);
 	success &= trdb_d5m_write(&i2c, 0x023, writedata);
-
+	//Sets Horizontal Blank
 	success &= trdb_d5m_write(&i2c, 0x005, 0);
-
-    success &= trdb_d5m_write(&i2c, 0x0A0, 0);
-    success &= trdb_d5m_write(&i2c, 0x0A1, 0); // Green
-    success &= trdb_d5m_write(&i2c, 0x0A2, 0); // Red
-    success &= trdb_d5m_write(&i2c, 0x0A3, 0); // Blue
-    success &= trdb_d5m_write(&i2c, 0x0A4, 0); // width
+	//Disable BLC
+	success &= trdb_d5m_write(&i2c, 0x062, 0<<1);
+	//Test part
+    success &= trdb_d5m_write(&i2c, 0x0A0, 0);	// Type
+    success &= trdb_d5m_write(&i2c, 0x0A1, 0);	// Green
+    success &= trdb_d5m_write(&i2c, 0x0A2, 0);	// Red
+    success &= trdb_d5m_write(&i2c, 0x0A3, 0);	// Blue
+    success &= trdb_d5m_write(&i2c, 0x0A4, 0);	// width
+    //Restart a new frame
+    success &= trdb_d5m_write(&i2c, 0x00B, 1);	// width
 
     /* read from registers, put data in readdata */
     uint16_t readdata = 0;

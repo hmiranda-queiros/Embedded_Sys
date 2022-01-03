@@ -58,7 +58,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "9";
          type = "int";
       }
    }
@@ -95,7 +95,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -328,8 +328,8 @@
    kind="cmos_sensor_output_generator"
    version="15.1"
    enabled="0">
-  <parameter name="MAX_HEIGHT" value="1080" />
-  <parameter name="MAX_WIDTH" value="1920" />
+  <parameter name="MAX_HEIGHT" value="480" />
+  <parameter name="MAX_WIDTH" value="640" />
   <parameter name="PIX_DEPTH" value="12" />
  </module>
  <module name="hps_0" kind="altera_hps" version="18.1" enabled="1">
@@ -1141,18 +1141,18 @@
    kind="avalon"
    version="18.1"
    start="nios2_gen2_0.data_master"
-   end="cmos_sensor_output_generator_0.avalon_slave">
+   end="i2c_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x10000820" />
+  <parameter name="baseAddress" value="0x10000808" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="18.1"
    start="nios2_gen2_0.data_master"
-   end="i2c_0.avalon_slave">
+   end="cmos_sensor_output_generator_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x10000808" />
+  <parameter name="baseAddress" value="0x10000820" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1232,12 +1232,12 @@
    version="18.1"
    start="clk_0.clk"
    end="address_span_extender_0.clock" />
+ <connection kind="clock" version="18.1" start="clk_0.clk" end="i2c_0.clock" />
  <connection
    kind="clock"
    version="18.1"
    start="clk_0.clk"
    end="cmos_sensor_output_generator_0.clock" />
- <connection kind="clock" version="18.1" start="clk_0.clk" end="i2c_0.clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -1282,12 +1282,12 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="Camera_Ctrl_0.reset" />
+ <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="i2c_0.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
    end="cmos_sensor_output_generator_0.reset" />
- <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="i2c_0.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -1313,11 +1313,6 @@
    version="18.1"
    start="nios2_gen2_0.debug_reset_request"
    end="Camera_Ctrl_0.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="nios2_gen2_0.debug_reset_request"
-   end="cmos_sensor_output_generator_0.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -1332,6 +1327,11 @@
    kind="reset"
    version="18.1"
    start="nios2_gen2_0.debug_reset_request"
+   end="cmos_sensor_output_generator_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="nios2_gen2_0.debug_reset_request"
    end="onchip_memory2_0.reset1" />
  <connection
    kind="reset"
@@ -1358,12 +1358,12 @@
    version="18.1"
    start="hps_0.h2f_reset"
    end="Camera_Ctrl_0.reset" />
+ <connection kind="reset" version="18.1" start="hps_0.h2f_reset" end="i2c_0.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="hps_0.h2f_reset"
    end="cmos_sensor_output_generator_0.reset" />
- <connection kind="reset" version="18.1" start="hps_0.h2f_reset" end="i2c_0.reset" />
  <connection
    kind="reset"
    version="18.1"

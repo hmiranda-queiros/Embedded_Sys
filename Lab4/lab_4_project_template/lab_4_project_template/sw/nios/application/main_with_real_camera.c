@@ -29,7 +29,7 @@ int main(void) {
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_1);		// sets the start address of the frame in memory
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGBURST * 4, 16);						// sets the length of the burst to transfer in words of 32 bits
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLENGTH * 4, 38400);					// sets the length of one frame in memory in number of 32 bit words
-	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 0);						// sets the lighting conditions of the camera
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 1);						// sets the lighting conditions of the camera
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);						// sets the state of the camera interface to enable
 
 	volatile unsigned int read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
@@ -57,6 +57,7 @@ int main(void) {
 	//Changes the start address for the next frame and enables camera acquisition again
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_2);
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 0);						// sets the lighting conditions of the camera
 
 	read_enable = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
 

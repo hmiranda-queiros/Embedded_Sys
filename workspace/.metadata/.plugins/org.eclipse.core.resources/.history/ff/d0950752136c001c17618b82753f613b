@@ -1,0 +1,43 @@
+#include <assert.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include "io.h"
+#include "system.h"
+
+#include "memory_access.h"
+
+int read_memory(uint32_t base_address_memory, char* filename) {
+
+    FILE *foutput = fopen(filename, "w");
+    if (!foutput) {
+     printf("Error: could not open \"%s\" for writing\n", filename);
+     return false;
+    }
+
+    printf("Begin writing file \n");
+
+	fprintf(foutput,"P3\n320 240\n31 63 31\n");
+
+    for (int j = 0; j < 240; j += 1) {
+    	for (int i = 0; i < 320; i += 1) {
+    		uint32_t addr = base_address_memory + sizeof(uint16_t) * (i + j * 320);
+
+			uint16_t readdata = IORD_16DIRECT(addr, 0);
+			uint16_t R = readdata & 31;
+			uint16_t G = (readdata & 2016) >> 5;
+			uint16_t B = (readdata & 63488) >> 11;
+			fprintf(foutput,"%" PRIu16 " ", R);
+			fprintf(foutput,"%" PRIu16 " ", G);
+			fprintf(foutput,"%" PRIu16 " ", B);
+    	}
+    	fprintf(foutput,"\n");
+    }
+
+    printf("End writing file \n\n");
+    fclose(foutput);
+
+    return EXIT_SUCCESS;
+}

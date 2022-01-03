@@ -58,29 +58,29 @@ entity DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
 --        GPIO_0_LT24_RS           : out std_logic;
 --        GPIO_0_LT24_WR_N         : out std_logic;
 
-        -- GPIO_1 with cmos
-        GPIO_1_D5M_D       : inout    std_logic_vector(11 downto 0);
-        GPIO_1_D5M_FVAL    : inout    std_logic;
-        GPIO_1_D5M_LVAL    : inout   std_logic;
-        GPIO_1_D5M_PIXCLK  : inout    std_logic;
-        GPIO_1_D5M_RESET_N : out   std_logic;
-        GPIO_1_D5M_SCLK    : inout std_logic;
-        GPIO_1_D5M_SDATA   : inout std_logic;
-        -- GPIO_1_D5M_STROBE  : in    std_logic;
-        -- GPIO_1_D5M_TRIGGER : out   std_logic;
-        GPIO_1_D5M_XCLKIN  : out   std_logic;
-		
-		-- -- GPIO_1 with camera
-        -- GPIO_1_D5M_D       : in    std_logic_vector(11 downto 0);
-        -- GPIO_1_D5M_FVAL    : in    std_logic;
-        -- GPIO_1_D5M_LVAL    : in   std_logic;
-        -- GPIO_1_D5M_PIXCLK  : in    std_logic;
+        -- -- GPIO_1 with cmos
+        -- GPIO_1_D5M_D       : inout    std_logic_vector(11 downto 0);
+        -- GPIO_1_D5M_FVAL    : inout    std_logic;
+        -- GPIO_1_D5M_LVAL    : inout   std_logic;
+        -- --GPIO_1_D5M_PIXCLK  : in    std_logic;
         -- GPIO_1_D5M_RESET_N : out   std_logic;
         -- GPIO_1_D5M_SCLK    : inout std_logic;
         -- GPIO_1_D5M_SDATA   : inout std_logic;
         -- -- GPIO_1_D5M_STROBE  : in    std_logic;
         -- -- GPIO_1_D5M_TRIGGER : out   std_logic;
         -- GPIO_1_D5M_XCLKIN  : out   std_logic;
+		
+		-- GPIO_1 with camera
+        GPIO_1_D5M_D       : in    std_logic_vector(11 downto 0);
+        GPIO_1_D5M_FVAL    : in    std_logic;
+        GPIO_1_D5M_LVAL    : in   std_logic;
+        GPIO_1_D5M_PIXCLK  : in    std_logic;
+        GPIO_1_D5M_RESET_N : out   std_logic;
+        GPIO_1_D5M_SCLK    : inout std_logic;
+        GPIO_1_D5M_SDATA   : inout std_logic;
+        -- GPIO_1_D5M_STROBE  : in    std_logic;
+        -- GPIO_1_D5M_TRIGGER : out   std_logic;
+        GPIO_1_D5M_XCLKIN  : out   std_logic;
 
         -- HPS
         HPS_CONV_USB_N   : inout std_logic;
@@ -205,17 +205,17 @@ architecture rtl of DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
             hps_0_io_hps_io_gpio_inst_GPIO54    : inout std_logic                     := 'X';
             hps_0_io_hps_io_gpio_inst_GPIO61    : inout std_logic                     := 'X';
             pio_leds_external_connection_export : out   std_logic_vector(7 downto 0);
-				camera_ctrl_0_camera_clock_out                         : out   std_logic;                                        -- clock_out
-				camera_ctrl_0_camera_data_in                           : in    std_logic_vector(11 downto 0) := (others => 'X'); -- data_in
-				camera_ctrl_0_camera_line_valid                        : in    std_logic                     := 'X';             -- line_valid
-				camera_ctrl_0_camera_frame_valid                       : in    std_logic                     := 'X';             -- frame_valid
-				camera_ctrl_0_camera_pixel_clock_in                    : in    std_logic                     := 'X';             -- pixel_clock_in
-				camera_ctrl_0_camera_nreset_out                        : out   std_logic;                                        -- nreset_out
-				cmos_sensor_output_generator_0_cmos_sensor_frame_valid : out   std_logic;                                        -- frame_valid
-				cmos_sensor_output_generator_0_cmos_sensor_line_valid  : out   std_logic;                                        -- line_valid
-				cmos_sensor_output_generator_0_cmos_sensor_data        : out   std_logic_vector(11 downto 0);                     -- data
-				i2c_0_i2c_scl                                          : inout std_logic                     := 'X';             -- scl
-				i2c_0_i2c_sda                                          : inout std_logic                     := 'X'              -- sda
+			camera_ctrl_0_camera_clock_out                         : out   std_logic;                                        -- clock_out
+			camera_ctrl_0_camera_data_in                           : in    std_logic_vector(11 downto 0) := (others => 'X'); -- data_in
+			camera_ctrl_0_camera_line_valid                        : in    std_logic                     := 'X';             -- line_valid
+			camera_ctrl_0_camera_frame_valid                       : in    std_logic                     := 'X';             -- frame_valid
+			camera_ctrl_0_camera_pixel_clock_in                    : in    std_logic                     := 'X';             -- pixel_clock_in
+			camera_ctrl_0_camera_nreset_out                        : out   std_logic;                                        -- nreset_out
+			-- cmos_sensor_output_generator_0_cmos_sensor_frame_valid : out   std_logic;                                        -- frame_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_line_valid  : out   std_logic;                                        -- line_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_data        : out   std_logic_vector(11 downto 0);                     -- data
+			i2c_0_i2c_scl                                          : inout std_logic                     := 'X';             -- scl
+			i2c_0_i2c_sda                                          : inout std_logic                     := 'X'              -- sda
 					
         );
     end component soc_system;
@@ -295,12 +295,12 @@ begin
 			camera_ctrl_0_camera_data_in                           => GPIO_1_D5M_D,                   -- data_in
 			camera_ctrl_0_camera_line_valid                        => GPIO_1_D5M_LVAL,                -- line_valid
 			camera_ctrl_0_camera_frame_valid                       => GPIO_1_D5M_FVAL,                -- frame_valid
-			camera_ctrl_0_camera_pixel_clock_in                    => GPIO_1_D5M_PIXCLK ,             -- pixel_clock_in
 			camera_ctrl_0_camera_nreset_out                        => GPIO_1_D5M_RESET_N,             -- nreset_out
-			GPIO_1_D5M_PIXCLK										=> FPGA_CLK1_50,				-- Pixel clock in
-			cmos_sensor_output_generator_0_cmos_sensor_frame_valid => GPIO_1_D5M_FVAL,						-- cmos_sensor_output_generator_0_cmos_sensor.frame_valid
-			cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					-- line_valid
-			cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				-- data
+			camera_ctrl_0_camera_pixel_clock_in                   => GPIO_1_D5M_PIXCLK,             	-- pixel_clock_in
+			-- camera_ctrl_0_camera_pixel_clock_in                    => FPGA_CLK1_50,             	-- pixel_clock_in
+			-- cmos_sensor_output_generator_0_cmos_sensor_frame_valid => GPIO_1_D5M_FVAL,						-- cmos_sensor_output_generator_0_cmos_sensor.frame_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					-- line_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				-- data
 			i2c_0_i2c_scl                                          => GPIO_1_D5M_SCLK,                -- i2c_0_i2c.scl
 			i2c_0_i2c_sda                                          => GPIO_1_D5M_SDATA                -- sda
 		

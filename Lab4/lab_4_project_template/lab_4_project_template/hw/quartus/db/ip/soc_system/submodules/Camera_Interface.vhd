@@ -134,7 +134,7 @@ begin
 	XCLKIN <= Clk;
 	
 	-- Acquisition rows from Camera
-	process (nReset, Clk)
+	process (nReset, PIXCLK)
 	begin
 		if nReset = '0' then										-- Default values at Reset
 			wrreq_FIFO_Entry_1		<= '0';
@@ -145,7 +145,7 @@ begin
 			data_FIFO_Entry_1 <= (others => '0');
 			data_FIFO_Entry_2 <= (others => '0');
 		
-		elsif rising_edge(Clk) then
+		elsif rising_edge(PIXCLK) then
 			case SM_Entry is
 				when Idle =>											-- Stays idle while a frame ends and camera interface is enabled
 					state_row <= "001";
