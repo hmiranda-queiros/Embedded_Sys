@@ -38,55 +38,53 @@ int configure_camera(void) {
     bool success = true;
     uint16_t writedata = 0;
 
-    //Writes writedata in registers
-    /*
-    success &= trdb_d5m_write(&i2c, 0x03, 1919);	//row number
-    success &= trdb_d5m_write(&i2c, 0x04, 2559);	//column number
-    success &= trdb_d5m_write(&i2c, 0x22, 51);	//row 3 binning 3 skipping
-    success &= trdb_d5m_write(&i2c, 0x23, 51);	//column 3 binning 3 skipping
-    success &= trdb_d5m_write(&i2c, 0x00A, 1 << 15); //PIXCLK rise edge
-    success &= trdb_d5m_write(&i2c, 0x005, 906);	// Horizontal Blank
-    */
-
     //Makes correct values available at rising edge of PIXCLK
 	writedata = 1 << 15;
 	success &= trdb_d5m_write(&i2c, 0x00A, writedata);
-	//Sets row-number
-	writedata = 479u;
+	//Sets row size
+	writedata = 1919;
+	//writedata = 479;
 	success &= trdb_d5m_write(&i2c, 0x003, writedata);
-	//Sets column-number
-	writedata = 639u;
+	//Sets column size
+	writedata = 2559;
+	//writedata = 639;
 	success &= trdb_d5m_write(&i2c, 0x004, writedata);
-	//Sets binning and skipping
-	writedata = 0;
+	//Sets binning and skipping to 3 for rows and columns
+	writedata = 0b110011;
+	//writedata = 0;
 	success &= trdb_d5m_write(&i2c, 0x022, writedata);
 	success &= trdb_d5m_write(&i2c, 0x023, writedata);
 	//Sets Horizontal Blank
-	success &= trdb_d5m_write(&i2c, 0x005, 0);
-	//Disable BLC
-	success &= trdb_d5m_write(&i2c, 0x062, 1<<1);
+	writedata = 906u;
+	success &= trdb_d5m_write(&i2c, 0x005, writedata);
+
 	//Test part
-    success &= trdb_d5m_write(&i2c, 0x0A0, 1);	// Type
-    success &= trdb_d5m_write(&i2c, 0x0A1, 0);	// Green
-    success &= trdb_d5m_write(&i2c, 0x0A2, 0);	// Red
-    success &= trdb_d5m_write(&i2c, 0x0A3, 0);	// Blue
-    success &= trdb_d5m_write(&i2c, 0x0A4, 0);	// width
+    success &= trdb_d5m_write(&i2c, 0x0A0, 0);		// Vertical Monochrome bars
+    success &= trdb_d5m_write(&i2c, 0x0A1, 0);		// Green
+    success &= trdb_d5m_write(&i2c, 0x0A2, 0);		// Red
+    success &= trdb_d5m_write(&i2c, 0x0A3, 0);		// Blue
+    success &= trdb_d5m_write(&i2c, 0x0A4, 0);		// bar width
+    success &= trdb_d5m_write(&i2c, 0x062, 0<<1);	//Disable BLC
+
     //Restart a new frame
-    success &= trdb_d5m_write(&i2c, 0x00B, 1);	// width
+    writedata = 1;
+    success &= trdb_d5m_write(&i2c, 0x00B, writedata);
 
     /* read from registers, put data in readdata */
-    uint16_t readdata = 0;
-    success &= trdb_d5m_read(&i2c, 0x03, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x04, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x22, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x23, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x00A, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x005, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x0A0, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x0A1, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x0A2, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x0A3, &readdata);
-    success &= trdb_d5m_read(&i2c, 0x0A4, &readdata);
+	uint16_t readdata = 0;
+	success &= trdb_d5m_read(&i2c, 0x03, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x04, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x22, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x23, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x00A, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x005, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x0A0, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x0A1, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x0A2, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x0A3, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x0A4, &readdata);
+	success &= trdb_d5m_read(&i2c, 0x062, &readdata);
+
 
     if (success) {
         return EXIT_SUCCESS;
@@ -94,3 +92,9 @@ int configure_camera(void) {
         return EXIT_FAILURE;
     }
 }
+
+
+
+
+
+

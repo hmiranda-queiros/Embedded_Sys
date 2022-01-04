@@ -6930,3 +6930,107 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 
 !ENTRY com.altera.sbtgui.launch 1 0 2022-01-03 16:42:52.346
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:51:07.978
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:51:10.491
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:56:17.292
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:56:19.777
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:56:22.179
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:58:14.067
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 11:58:16.304
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:02:37.433
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:02:39.699
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:06:51.692
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:06:53.982
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:10:08.431
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:10:10.718
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2022-01-04 12:10:34.971
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:13:22.781
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:13:25.008
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2022-01-04 12:14:12.193
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:14:41.295
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:14:43.683
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:15:38.658
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:15:40.993
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:16:27.415
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:16:29.624
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:29:38.301
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:29:40.035
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:29:42.452
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:32:47.112
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --accept-bad-sysid /cygdrive/c/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/application/camera_project.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-01-04 12:32:49.338
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
