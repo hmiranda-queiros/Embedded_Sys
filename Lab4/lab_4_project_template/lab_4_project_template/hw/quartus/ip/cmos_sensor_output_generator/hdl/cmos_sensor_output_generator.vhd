@@ -260,7 +260,7 @@ begin
                 end if;
                 
                 if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '0' then -- R
-                    data <= (others => '0');
+                    data <= (others => '1');
                 end if;
                 
                 if reg_frame_height_counter(0) = '1' and reg_frame_width_counter(0) = '1' then -- G1

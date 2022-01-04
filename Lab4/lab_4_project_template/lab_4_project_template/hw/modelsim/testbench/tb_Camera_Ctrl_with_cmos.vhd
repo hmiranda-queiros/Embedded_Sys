@@ -40,8 +40,8 @@ architecture test of tb_Camera_Ctrl_with_cmos is
 	constant PIX_DEPTH         : positive := 12;
 	constant MAX_WIDTH         : positive := 1920;
 	constant MAX_HEIGHT        : positive := 1080;
-	constant FRAME_WIDTH       : positive := 4;									-- Size Row
-	constant FRAME_HEIGHT      : positive := 4;									-- Size Column
+	constant FRAME_WIDTH       : positive := 8;									-- Size Row
+	constant FRAME_HEIGHT      : positive := 8;									-- Size Column
 	constant FRAME_FRAME_BLANK : positive := 1;
 	constant FRAME_LINE_BLANK  : natural  := 1;
 	constant LINE_LINE_BLANK   : positive := 1;
@@ -264,8 +264,8 @@ begin
 		
 		--Write/Read Camera_Ctrl Registsters
 		WR(0, 0);			-- Writes RegAdr
-		WR(3, 1);			-- Writes RegBurst
-		WR(1, 2);			-- Writes RegLength (Row_Size * Column_Size / 8)
+		WR(3, 4);			-- Writes RegBurst
+		WR(1, 8);			-- Writes RegLength (Row_Size * Column_Size / 8)
 		WR(4, 0);			-- Writes RegLight
 		WR(2, 1);			-- Writes RegEnable
 		
