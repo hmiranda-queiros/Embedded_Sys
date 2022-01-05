@@ -142,7 +142,7 @@ begin
 		
 		elsif rising_edge(PIXCLK) then
 			case SM_Entry is
-				when Idle =>											-- Stays idle while a frame ends and camera interface is enabled
+				when Idle =>											-- Stays idle till a frame ends and camera interface is enabled
 					wrreq_FIFO_Entry_1		<= '0';
 					wrreq_FIFO_Entry_2		<= '0';
 					data_FIFO_Entry_1 		<= (others => '0');
@@ -304,7 +304,7 @@ begin
 			
 		elsif rising_edge(Clk) then
 			case SM_Exit is
-				when Idle =>											-- Stays idle till FIFO Exit has at least iRegurst 32 bit words ready in its buffer
+				when Idle =>											-- Stays idle till FIFO Exit has at least iRegBurst 32 bit words ready in its buffer
 					rdreq_FIFO_Exit			<= '0';
 					NewData						<= '0';
 					CntBurst						<= iRegBurst;

@@ -64,7 +64,7 @@ begin
 						CntBurst		<= iRegBurst;
 					end if;
 					
-				when WaitData =>
+				when WaitData =>													-- Waits for a new Burst transfer
 					if iRegLength = 0 then 											-- goes Idle if iRegLength = 0 
 						SM <= Idle;
 					elsif NewData = '1' then 										-- Receives new data burst 
@@ -80,7 +80,7 @@ begin
 						end if;
 					end if;
 					
-				when WriteData => 													-- Writes on Avalon Bus
+				when WriteData => 													-- Writes on memory
 					AM_DataWrite		<= NewPixels;
 					if AM_WaitRequest = '0' and CntBurst /= 0 then			-- Can receive next 32 bit word when the previous is sent
 						CntBurst 		<= CntBurst - 1;
