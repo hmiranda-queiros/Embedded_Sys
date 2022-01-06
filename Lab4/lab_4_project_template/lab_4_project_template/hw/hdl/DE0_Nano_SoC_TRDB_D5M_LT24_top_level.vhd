@@ -44,19 +44,19 @@ entity DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
 --        SW : in std_logic_vector(3 downto 0);
 
         -- GPIO_0
---        GPIO_0_LT24_ADC_BUSY     : in  std_logic;
---        GPIO_0_LT24_ADC_CS_N     : out std_logic;
---        GPIO_0_LT24_ADC_DCLK     : out std_logic;
---        GPIO_0_LT24_ADC_DIN      : out std_logic;
---        GPIO_0_LT24_ADC_DOUT     : in  std_logic;
---        GPIO_0_LT24_ADC_PENIRQ_N : in  std_logic;
---        GPIO_0_LT24_CS_N         : out std_logic;
---        GPIO_0_LT24_D            : out std_logic_vector(15 downto 0);
---        GPIO_0_LT24_LCD_ON       : out std_logic;
---        GPIO_0_LT24_RD_N         : out std_logic;
---        GPIO_0_LT24_RESET_N      : out std_logic;
---        GPIO_0_LT24_RS           : out std_logic;
---        GPIO_0_LT24_WR_N         : out std_logic;
+        --GPIO_0_LT24_ADC_BUSY     : in  std_logic;
+        GPIO_0_LT24_ADC_CS_N     : out std_logic;
+        GPIO_0_LT24_ADC_DCLK     : out std_logic;
+        GPIO_0_LT24_ADC_DIN      : out std_logic;
+       -- GPIO_0_LT24_ADC_DOUT     : in  std_logic;
+        --GPIO_0_LT24_ADC_PENIRQ_N : in  std_logic;
+        GPIO_0_LT24_CS_N         : out std_logic;
+        GPIO_0_LT24_D            : out std_logic_vector(15 downto 0);
+        GPIO_0_LT24_LCD_ON       : out std_logic;
+        GPIO_0_LT24_RD_N         : out std_logic;
+        GPIO_0_LT24_RESET_N      : out std_logic;
+        GPIO_0_LT24_RS           : out std_logic;
+        GPIO_0_LT24_WR_N         : out std_logic;
 
         -- -- GPIO_1 with cmos
         -- GPIO_1_D5M_D       : inout    std_logic_vector(11 downto 0);
@@ -205,17 +205,24 @@ architecture rtl of DE0_Nano_SoC_TRDB_D5M_LT24_top_level is
             hps_0_io_hps_io_gpio_inst_GPIO54    : inout std_logic                     := 'X';
             hps_0_io_hps_io_gpio_inst_GPIO61    : inout std_logic                     := 'X';
             pio_leds_external_connection_export : out   std_logic_vector(7 downto 0);
-				camera_ctrl_0_camera_clock_out                         : out   std_logic;                                        -- clock_out
-				camera_ctrl_0_camera_data_in                           : in    std_logic_vector(11 downto 0) := (others => 'X'); -- data_in
-				camera_ctrl_0_camera_line_valid                        : in    std_logic                     := 'X';             -- line_valid
-				camera_ctrl_0_camera_frame_valid                       : in    std_logic                     := 'X';             -- frame_valid
-				camera_ctrl_0_camera_pixel_clock_in                    : in    std_logic                     := 'X';             -- pixel_clock_in
-				camera_ctrl_0_camera_nreset_out                        : out   std_logic;                                        -- nreset_out
-				-- cmos_sensor_output_generator_0_cmos_sensor_frame_valid : out   std_logic;                                        -- frame_valid
-				-- cmos_sensor_output_generator_0_cmos_sensor_line_valid  : out   std_logic;                                        -- line_valid
-				-- cmos_sensor_output_generator_0_cmos_sensor_data        : out   std_logic_vector(11 downto 0);                     -- data
-				i2c_0_i2c_scl                                          : inout std_logic                     := 'X';             -- scl
-				i2c_0_i2c_sda                                          : inout std_logic                     := 'X'              -- sda
+			camera_ctrl_0_camera_clock_out                         : out   std_logic;                                        -- clock_out
+			camera_ctrl_0_camera_data_in                           : in    std_logic_vector(11 downto 0) := (others => 'X'); -- data_in
+			camera_ctrl_0_camera_line_valid                        : in    std_logic                     := 'X';             -- line_valid
+			camera_ctrl_0_camera_frame_valid                       : in    std_logic                     := 'X';             -- frame_valid
+			camera_ctrl_0_camera_pixel_clock_in                    : in    std_logic                     := 'X';             -- pixel_clock_in
+			camera_ctrl_0_camera_nreset_out                        : out   std_logic;                                        -- nreset_out
+			-- cmos_sensor_output_generator_0_cmos_sensor_frame_valid : out   std_logic;                                        -- frame_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_line_valid  : out   std_logic;                                        -- line_valid
+			-- cmos_sensor_output_generator_0_cmos_sensor_data        : out   std_logic_vector(11 downto 0);                     -- data
+			i2c_0_i2c_scl                                          : inout std_logic                     := 'X';             -- scl
+			i2c_0_i2c_sda                                          : inout std_logic                     := 'X';              -- sda
+			lcd_controller_0_data_readdata               : out   std_logic_vector(15 downto 0);                    -- readdata
+			lcd_controller_0_dcx_writeresponsevalid_n    : out   std_logic;                                        -- writeresponsevalid_n
+			lcd_controller_0_csx_writeresponsevalid_n    : out   std_logic;                                        -- writeresponsevalid_n
+			lcd_controller_0_lcd_on_writeresponsevalid_n : out   std_logic;                                        -- writeresponsevalid_n
+			lcd_controller_0_rdx_writeresponsevalid_n    : out   std_logic;                                        -- writeresponsevalid_n
+			lcd_controller_0_resx_writeresponsevalid_n   : out   std_logic;                                        -- writeresponsevalid_n
+			lcd_controller_0_wrx_writeresponsevalid_n    : out   std_logic                                         -- writeresponsevalid_n
 					
         );
     end component soc_system;
@@ -302,7 +309,14 @@ begin
 			-- cmos_sensor_output_generator_0_cmos_sensor_line_valid  => GPIO_1_D5M_LVAL,  					-- line_valid
 			-- cmos_sensor_output_generator_0_cmos_sensor_data        => GPIO_1_D5M_D,        				-- data
 			i2c_0_i2c_scl                                          	=> GPIO_1_D5M_SCLK,                -- i2c_0_i2c.scl
-			i2c_0_i2c_sda                                         	=> GPIO_1_D5M_SDATA                -- sda
+			i2c_0_i2c_sda                                         	=> GPIO_1_D5M_SDATA,                -- sda
+			lcd_controller_0_data_readdata               => GPIO_0_LT24_D,               --        lcd_controller_0_data.readdata
+			lcd_controller_0_dcx_writeresponsevalid_n    => GPIO_0_LT24_RS,    --         lcd_controller_0_dcx.writeresponsevalid_n
+			lcd_controller_0_csx_writeresponsevalid_n    => GPIO_0_LT24_CS_N,    --         lcd_controller_0_csx.writeresponsevalid_n
+			lcd_controller_0_lcd_on_writeresponsevalid_n => GPIO_0_LT24_LCD_ON, --      lcd_controller_0_lcd_on.writeresponsevalid_n
+			lcd_controller_0_rdx_writeresponsevalid_n    => GPIO_0_LT24_RD_N,    --         lcd_controller_0_rdx.writeresponsevalid_n
+			lcd_controller_0_resx_writeresponsevalid_n   => GPIO_0_LT24_RESET_N,   --        lcd_controller_0_resx.writeresponsevalid_n
+			lcd_controller_0_wrx_writeresponsevalid_n    => GPIO_0_LT24_WR_N     --         lcd_controller_0_wrx.writeresponsevalid_n
 		
     );
 

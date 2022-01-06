@@ -149,6 +149,7 @@ C_SRCS += memory_access.c
 C_SRCS += main_with_real_camera.c
 C_SRCS += i2c/i2c.c
 C_SRCS += i2c_m.c
+C_SRCS += LCD_control.c
 CXX_SRCS :=
 ASM_SRCS :=
 

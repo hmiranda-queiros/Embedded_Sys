@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'soc_system'
  * SOPC Builder design path: C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/soc_system.sopcinfo
  *
- * Generated: Mon Jan 03 15:17:38 CET 2022
+ * Generated: Thu Jan 06 15:35:34 CET 2022
  */
 
 /*
@@ -142,7 +142,7 @@
  */
 
 #define ALT_MODULE_CLASS_Camera_Ctrl_0 Camera_Ctrl
-#define CAMERA_CTRL_0_BASE 0x10000840
+#define CAMERA_CTRL_0_BASE 0x10000820
 #define CAMERA_CTRL_0_IRQ -1
 #define CAMERA_CTRL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CAMERA_CTRL_0_NAME "/dev/Camera_Ctrl_0"
@@ -162,6 +162,21 @@
 #define __CAMERA_CTRL
 #define __HPS_BRIDGE_AVALON
 #define __I2C
+#define __LCD_CONTROLLER
+
+
+/*
+ * LCD_controller_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_LCD_controller_0 LCD_controller
+#define LCD_CONTROLLER_0_BASE 0x10000840
+#define LCD_CONTROLLER_0_IRQ -1
+#define LCD_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define LCD_CONTROLLER_0_NAME "/dev/LCD_controller_0"
+#define LCD_CONTROLLER_0_SPAN 16
+#define LCD_CONTROLLER_0_TYPE "LCD_controller"
 
 
 /*

@@ -59,7 +59,7 @@ int configure_camera(void) {
 	success &= trdb_d5m_write(&i2c, 0x005, writedata);
 
 	//Test part
-    success &= trdb_d5m_write(&i2c, 0x0A0, 0);		// Vertical Monochrome bars
+    success &= trdb_d5m_write(&i2c, 0x0A0, 1);		// Vertical Monochrome bars
     success &= trdb_d5m_write(&i2c, 0x0A1, 0);		// Green
     success &= trdb_d5m_write(&i2c, 0x0A2, 0);		// Red
     success &= trdb_d5m_write(&i2c, 0x0A3, 0);		// Blue
