@@ -27,9 +27,9 @@ int read_memory(uint32_t base_address_memory, char* filename) {
 
     		//Reads the 16 bit RGB pixel at addr in memory
 			uint16_t readdata = IORD_16DIRECT(addr, 0);
-			uint16_t R = readdata & 31;					//Red Pixel
+			uint16_t B = readdata & 31;					//Blue Pixel
 			uint16_t G = (readdata & 2016) >> 5;		//Green Pixel
-			uint16_t B = (readdata & 63488) >> 11;		//Blue Pixel
+			uint16_t R = (readdata & 63488) >> 11;		//Red Pixel
 			fprintf(foutput,"%" PRIu16 " ", R);
 			fprintf(foutput,"%" PRIu16 " ", G/2);		//We only keep 5 bits in the ppm file
 			fprintf(foutput,"%" PRIu16 " ", B);

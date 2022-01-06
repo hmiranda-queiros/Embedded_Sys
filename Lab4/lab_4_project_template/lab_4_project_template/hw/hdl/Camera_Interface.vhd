@@ -258,16 +258,16 @@ begin
 				When WritePixels =>											-- Writes the previous pixel RGB into PixelsReady
 					if CntPixels = 1 then 
 						if iRegLight = '1' then
-							PixelsReady(15 downto 0)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
+							PixelsReady(15 downto 0)	<= R(11 downto 7) & G(11 downto 6) & B(11 downto 7);
 						else 
-							PixelsReady(15 downto 0)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
+							PixelsReady(15 downto 0)	<= R(4 downto 0) & G(5 downto 0) & B(4 downto 0); 
 						end if;
 					
 					else 															-- When CntPixels = 2, these two 16 pixels are written into FIFO Exit
 						if iRegLight = '1' then
-							PixelsReady(31 downto 16)	<= B(11 downto 7) & G(11 downto 6) & R(11 downto 7);
+							PixelsReady(31 downto 16)	<= R(11 downto 7) & G(11 downto 6) & B(11 downto 7);
 						else 
-							PixelsReady(31 downto 16)	<= B(4 downto 0) & G(5 downto 0) & R(4 downto 0); 
+							PixelsReady(31 downto 16)	<= R(4 downto 0) & G(5 downto 0) & B(4 downto 0); 
 						end if;
 						
 						wrreq_FIFO_Exit			<= '1';

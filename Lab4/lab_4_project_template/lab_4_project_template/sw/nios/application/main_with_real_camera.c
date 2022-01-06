@@ -19,7 +19,7 @@
 #define IREGENABLE 2
 #define IREGBURST 3
 #define IREGLIGHT 4
-#define CAMERA_CTRL_BASE (0x10000840)
+#define CAMERA_CTRL_BASE (0x10000820)
 
 #define ADDRESS_REG 	0b100
 #define COMMAND_REG 	0b00
@@ -42,7 +42,7 @@ int main(void) {
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 1);						// sets the lighting conditions of the camera
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);						// sets the state of the camera interface to enable
 
-	IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG, 0);
+	IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG, 1);
 
 	volatile unsigned int enable_camera = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
 
@@ -51,46 +51,38 @@ int main(void) {
 	//IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, COMMAND_REG, DISPLAY_COMMAND);
 	volatile unsigned int image_read_lcd = IORD_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG);
 
-	volatile unsigned int img_1_written = 1;
-	volatile unsigned int img_2_written = 0;
-	volatile unsigned int img_1_read = 1;
-	volatile unsigned int img_2_read = 0;
+	volatile unsigned int img_1_written = 0;
+	volatile unsigned int img_2_written = 1;
+	volatile unsigned int img_1_read = 0;
+	volatile unsigned int img_2_read = 1;
 
-	/*
 	while(1){
 		enable_camera = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
 		image_read_lcd = IORD_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG);
 
 		if (enable_camera == 0){
-			if (img_1_written == 1){
-				img_2_written = 1;
-				if (img_1_read == 1){
-					img_1_written = 0;
-					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_1);
-					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);
-				}
-			}
-			else {
+			if (img_2_written == 1){
 				img_1_written = 1;
 				if (img_2_read == 1){
 					img_2_written = 0;
+					//read_memory(HPS_0_BRIDGES_BASE_1, "/mnt/host/image_1_camera.ppm");
 					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_2);
+					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);
+				}
+			}
+			else if (img_1_written == 1){
+				img_2_written = 1;
+				if (img_1_read == 1){
+					img_1_written = 0;
+					//read_memory(HPS_0_BRIDGES_BASE_2, "/mnt/host/image_1_camera.ppm");
+					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_1);
 					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);
 				}
 			}
 		}
 
 		if (image_read_lcd == 1){
-			if (img_1_read == 1){
-				img_2_read = 1;
-				if (img_1_written == 1){
-					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG, 0);
-					img_1_read = 0;
-					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, ADDRESS_REG, HPS_0_BRIDGES_BASE_1);
-					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, COMMAND_REG, DISPLAY_COMMAND);
-				}
-			}
-			else {
+			if (img_2_read == 1){
 				img_1_read = 1;
 				if (img_2_written == 1){
 					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG, 0);
@@ -99,9 +91,21 @@ int main(void) {
 					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, COMMAND_REG, DISPLAY_COMMAND);
 				}
 			}
+			else if (img_1_read == 1){
+				img_2_read = 1;
+				if (img_1_written == 1){
+					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, IMAGE_READ_REG, 0);
+					img_1_read = 0;
+					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, ADDRESS_REG, HPS_0_BRIDGES_BASE_1);
+					IOWR_32DIRECT(LCD_CONTROLLER_0_BASE, COMMAND_REG, DISPLAY_COMMAND);
+				}
+			}
 		}
-	}*/
+	}
 
+
+
+	/*
 	while(enable_camera == 1){
 		enable_camera = IORD_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4);
 	}
