@@ -1,0 +1,68 @@
+
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|i2c_interface:i2c_0|i2c_core:core|p_state
+Name p_state.s_WrAck_D p_state.s_WrAck_C p_state.s_WrAck_B p_state.s_WrAck_A p_state.s_Wr_E p_state.s_Wr_D p_state.s_Wr_C p_state.s_Wr_B p_state.s_Wr_A p_state.s_RdAck_E p_state.s_RdAck_D p_state.s_RdAck_C p_state.s_RdAck_B p_state.s_RdAck_A p_state.s_Rd_F p_state.s_Rd_E p_state.s_Rd_D p_state.s_Rd_C p_state.s_Rd_B p_state.s_Rd_A p_state.s_Stop_C p_state.s_Stop_B p_state.s_Stop_A p_state.s_Start_D p_state.s_Start_C p_state.s_Start_B p_state.s_Start_A p_state.s_DoneAck p_state.s_Done p_state.s_Idle p_state.s_Reset 
+p_state.s_Reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+p_state.s_Idle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+p_state.s_Done 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+p_state.s_DoneAck 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+p_state.s_Start_A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+p_state.s_Start_B 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+p_state.s_Start_C 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+p_state.s_Start_D 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+p_state.s_Stop_A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+p_state.s_Stop_B 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+p_state.s_Stop_C 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_B 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_C 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_D 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_E 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Rd_F 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_RdAck_A 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_RdAck_B 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_RdAck_C 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_RdAck_D 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_RdAck_E 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Wr_A 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Wr_B 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Wr_C 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Wr_D 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_Wr_E 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_WrAck_A 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_WrAck_B 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_WrAck_C 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+p_state.s_WrAck_D 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Interface:u1|SM
+Name SM.WaitRead SM.WritePixels SM.Ops SM.Read_R_G2 SM.Read_G1_B SM.Idle 
+SM.Idle 0 0 0 0 0 0 
+SM.Read_G1_B 0 0 0 0 1 1 
+SM.Read_R_G2 0 0 0 1 0 1 
+SM.Ops 0 0 1 0 0 1 
+SM.WritePixels 0 1 0 0 0 1 
+SM.WaitRead 1 0 0 0 0 1 
+
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Interface:u1|SM_Entry
+Name SM_Entry.ReadLine2 SM_Entry.ReadLine1 SM_Entry.WaitLine2 SM_Entry.WaitLine1 SM_Entry.Idle 
+SM_Entry.Idle 0 0 0 0 0 
+SM_Entry.WaitLine1 0 0 0 1 1 
+SM_Entry.WaitLine2 0 0 1 0 1 
+SM_Entry.ReadLine1 0 1 0 0 1 
+SM_Entry.ReadLine2 1 0 0 0 1 
+
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|Camera_Ctrl:camera_ctrl_0|Camera_Master:u0|SM
+Name SM.WaitCPU SM.AcqData SM.WriteData SM.WaitData SM.Idle 
+SM.Idle 0 0 0 0 0 
+SM.WaitData 0 0 0 1 1 
+SM.WriteData 0 0 1 0 1 
+SM.AcqData 0 1 0 0 1 
+SM.WaitCPU 1 0 0 0 1 
+
+State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|soc_system_nios2_gen2_0:nios2_gen2_0|soc_system_nios2_gen2_0_cpu:cpu|soc_system_nios2_gen2_0_cpu_nios2_oci:the_soc_system_nios2_gen2_0_cpu_nios2_oci|soc_system_nios2_gen2_0_cpu_debug_slave_wrapper:the_soc_system_nios2_gen2_0_cpu_debug_slave_wrapper|soc_system_nios2_gen2_0_cpu_debug_slave_tck:the_soc_system_nios2_gen2_0_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 

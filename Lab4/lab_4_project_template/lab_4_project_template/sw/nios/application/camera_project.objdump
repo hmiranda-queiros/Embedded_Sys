@@ -576,7 +576,7 @@ Disassembly of section .entry:
 10100014:	08409114 	ori	at,at,580
     jmp r1
 10100018:	0800683a 	jmp	at
-1010001c:	00000000 	call	10000000 <__reset-0x100000>
+1010001c:	00000000 	call	10000000 <__alt_mem_onchip_memory2_0-0x100000>
 
 Disassembly of section .exceptions:
 
@@ -22696,7 +22696,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
 10111d8c:	d9400015 	stw	r5,0(sp)
 10111d90:	d9800115 	stw	r6,4(sp)
 10111d94:	d9c00215 	stw	r7,8(sp)
-10111d98:	00000000 	call	10000000 <__reset-0x100000>
+10111d98:	00000000 	call	10000000 <__alt_mem_onchip_memory2_0-0x100000>
 10111d9c:	d9400017 	ldw	r5,0(sp)
 10111da0:	d9800117 	ldw	r6,4(sp)
 10111da4:	d9c00217 	ldw	r7,8(sp)
@@ -22780,7 +22780,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
 10111ed4:	10003226 	beq	r2,zero,10111fa0 <__call_exitprocs+0x178>
 10111ed8:	a009883a 	mov	r4,r20
 10111edc:	98800015 	stw	r2,0(r19)
-10111ee0:	00000000 	call	10000000 <__reset-0x100000>
+10111ee0:	00000000 	call	10000000 <__alt_mem_onchip_memory2_0-0x100000>
 10111ee4:	9d000017 	ldw	r20,0(r19)
 10111ee8:	a03fe41e 	bne	r20,zero,10111e7c <__alt_data_end+0xffff1e7c>
 10111eec:	dfc00a17 	ldw	ra,40(sp)
