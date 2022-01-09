@@ -37,7 +37,7 @@ int main(void) {
 
 	//Writes in Camera_Ctrl registers
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_1);		// sets the start address of the frame in memory
-	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGBURST * 4, 1);						// sets the length of the burst to transfer in words of 32 bits
+	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGBURST * 4, 16);						// sets the length of the burst to transfer in words of 32 bits
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLENGTH * 4, 38400);					// sets the length of one frame in memory in number of 32 bit words
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGLIGHT * 4, 1);						// sets the lighting conditions of the camera
 	IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);						// sets the state of the camera interface to enable
