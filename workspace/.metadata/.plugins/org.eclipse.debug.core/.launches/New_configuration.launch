@@ -5,7 +5,7 @@
 <stringAttribute key="byteStreamDeviceCableName" value="DE-SoC on localhost [USB-1]"/>
 <stringAttribute key="byteStreamDeviceDeviceID" value="2"/>
 <stringAttribute key="byteStreamDeviceInstanceID" value="0"/>
-<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="58669"/>
+<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="54370"/>
 <booleanAttribute key="downloadProgram" value="true"/>
 <stringAttribute key="elfFile" value="C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\Lab4\lab_4_project_template\lab_4_project_template\sw\nios\application\camera_project.elf"/>
 <stringAttribute key="elfUserFile" value="C:\Users\hugom\OneDrive\Documents\Cours\Embedded_sys\Lab4\lab_4_project_template\lab_4_project_template\sw\nios\application\camera_project.elf"/>

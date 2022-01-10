@@ -1,23 +1,8 @@
-18:57:22 **** Incremental Build of configuration Nios II for project camera_project ****
+08:44:46 **** Incremental Build of configuration Nios II for project camera_project ****
 make all 
 Info: Building C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/
 [BSP build complete]
-Info: Compiling LCD_control.c to obj/default/LCD_control.o
-nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//HAL/inc -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/ -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/LCD_control.o LCD_control.c
-LCD_control.c: In function 'LCD_init':
-LCD_control.c:43:17: warning: unused variable 'data4' [-Wunused-variable]
-  alt_u16 data3, data4;
-                 ^
-LCD_control.c:43:10: warning: unused variable 'data3' [-Wunused-variable]
-  alt_u16 data3, data4;
-          ^
-LCD_control.c:42:17: warning: unused variable 'datat2' [-Wunused-variable]
-  alt_u16 data1, datat2;
-                 ^
-LCD_control.c:42:10: warning: unused variable 'data1' [-Wunused-variable]
-  alt_u16 data1, datat2;
-          ^
 Info: Compiling main_with_real_camera.c to obj/default/main_with_real_camera.o
 nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//HAL/inc -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp/ -IC:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/sw/nios/camera_project_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main_with_real_camera.o main_with_real_camera.c
 main_with_real_camera.c: In function 'main':
@@ -33,5 +18,5 @@ Info: Creating camera_project.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source camera_project.elf >camera_project.objdump
 [camera_project build complete]
 
-18:57:27 Build Finished (took 5s.244ms)
+08:44:52 Build Finished (took 5s.900ms)
 

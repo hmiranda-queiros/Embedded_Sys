@@ -65,7 +65,7 @@ int main(void) {
 				img_1_written = 1;
 				if (img_2_read == 1){
 					img_2_written = 0;
-					read_memory(HPS_0_BRIDGES_BASE_1, "/mnt/host/image_1_camera.ppm");
+					//read_memory(HPS_0_BRIDGES_BASE_1, "/mnt/host/image_1_camera.ppm");
 					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGADR * 4, HPS_0_BRIDGES_BASE_2);
 					IOWR_32DIRECT(CAMERA_CTRL_BASE, IREGENABLE * 4, 1);
 				}
