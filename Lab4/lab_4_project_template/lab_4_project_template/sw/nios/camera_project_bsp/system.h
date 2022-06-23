@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'soc_system'
  * SOPC Builder design path: C:/Users/hugom/OneDrive/Documents/Cours/Embedded_sys/Lab4/lab_4_project_template/lab_4_project_template/hw/quartus/soc_system.sopcinfo
  *
- * Generated: Mon Jan 10 08:34:02 CET 2022
+ * Generated: Mon Jan 10 09:26:13 CET 2022
  */
 
 /*
